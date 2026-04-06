@@ -1525,7 +1525,7 @@ cd discord-bot && npm start
 
 | Role | Contact |
 |------|---------|
-| Lead Developer | Zahid (Level 2 Fiverr Seller) |
+| Lead Developer | Zahid Ghotia (Full Stack Developer) |
 | Project Owner | [Client Name] |
 | Official Game Site | https://gameofchase.com |
 
@@ -1535,7 +1535,7 @@ cd discord-bot && npm start
 
 This project is proprietary and confidential.
 
-**© 2024 Game of Chase / Bittersweet Publishing. All rights reserved.**
+**© 2026 Game of Chase / Bittersweet Publishing. All rights reserved.**
 
 ---
 
