@@ -38,16 +38,6 @@
 
 **Gangsta Island / Chase 101** is a digital adaptation of the official **"Game of Chase"** tabletop board game. This project transforms the physical board game into a cross-platform digital experience.
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x400/1a1a2e/ffffff?text=GANGSTA+ISLAND+BOARD" alt="Gangsta Island Board Preview" width="80%">
-</p>
-
-> **🎬 Live Demo Preview:** *Click to see board animation*
-
-<p align="center">
-  <img src="https://via.placeholder.com/600x300/2d2d44/ffffff?text=Player+Moving+on+Board" alt="Gameplay Animation" width="60%">
-</p>
-
 ### Official Game Information
 
 | Aspect | Details |
@@ -81,15 +71,11 @@
 - First to reach **$1,000,000** wins (Good Guys need $2,000,000 as a team)
 
 ### Turn Order
-
-<div align="center">
-  
-| ⏰ **Turn 1** | ⏰ **Turn 2** | ⏰ **Turn 3** |
-|:---:|:---:|:---:|
-| 🎲 **BAD HUSTLAS** | 🎲 **GOOD GUYS** | 🎲 **UGLY TAKERS** |
-| Move first - bring financial commerce to streets | Move second - capture BAD HUSTLAS money | Move last - hunt everyone |
-
-</div>
+```
+1. BAD HUSTLAS (move first - bring financial commerce to streets)
+2. GOOD GUYS (move second - capture BAD HUSTLAS money)
+3. UGLY TAKERS (move last - hunt everyone)
+```
 
 ### Movement Rules
 - Only **one direction** (no backward movement)
@@ -99,15 +85,11 @@
 
 ### Dice System
 
-| Roll | Effect | Animation |
-|------|--------|-----------|
-| `🎲 1-2-3-4-5-6` | **ATMBF** - Awards $1,000 | 💰 Money rain effect |
-| `🎲 1-1-1-2-6-6` (3 craps) | **SNITCH** - Go directly to JAIL | 🚔 Police siren |
-| `🎲 6 of a kind` | **$5,000,000 LOTTERY** (instant win, except LAMA) | 🎆 Fireworks |
-
-<p align="center">
-  <img src="https://via.placeholder.com/400x200/1a1a2e/ffd700?text=DICE+ANIMATION" alt="Dice Rolling Animation" width="50%">
-</p>
+| Roll | Effect |
+|------|--------|
+| `1-2-3-4-5-6` | **ATMBF** - Awards $1,000 |
+| `1-1-1-2-6-6` (3 craps) | **SNITCH** - Go directly to JAIL |
+| **6 of a kind** | **$5,000,000 LOTTERY** (instant win, except LAMA) |
 
 ---
 
@@ -117,16 +99,12 @@
 
 ### THE GOOD GUYS (Team 1 - Rebuild Community)
 
-<div align="center">
-  
-| # | Character | Starting Location | Avatar |
-|---|-----------|-------------------|--------|
-| 1 | **👑 KING CERVUS** | Drug Free Zone | <img src="https://via.placeholder.com/50/00ff00/ffffff?text=KC" width="40" height="40" style="border-radius: 50%"> |
-| 2 | **⛪ REVEREND** | Church | <img src="https://via.placeholder.com/50/00ff00/ffffff?text=RV" width="40" height="40" style="border-radius: 50%"> |
-| 3 | **👮 OFFICER FRIENDLY** | Breakfast Shop | <img src="https://via.placeholder.com/50/00ff00/ffffff?text=OF" width="40" height="40" style="border-radius: 50%"> |
-| 4 | **👩 COUNSELOR MOM** | Bus Stop | <img src="https://via.placeholder.com/50/00ff00/ffffff?text=CM" width="40" height="40" style="border-radius: 50%"> |
-
-</div>
+| # | Character Name | Starting Location |
+|---|----------------|-------------------|
+| 1 | **KING CERVUS** | Drug Free Zone |
+| 2 | **REVEREND** | Church |
+| 3 | **OFFICER FRIENDLY** | Breakfast Shop |
+| 4 | **COUNSELOR MOM** | Bus Stop |
 
 **Team Win Condition:** Collectively raise **$2,000,000** by taking illegally earned money from BAD HUSTLAS to rebuild the community.
 
@@ -139,17 +117,13 @@
 
 ### THE BAD HUSTLAS (Team 2 - Move First)
 
-<div align="center">
-  
-| # | Character | Starting Location | Avatar |
-|---|-----------|-------------------|--------|
-| 1 | **💊 COKALINA** | Crack House | <img src="https://via.placeholder.com/50/ff4444/ffffff?text=CK" width="40" height="40" style="border-radius: 50%"> |
-| 2 | **🐕 MR. H** | Dog Pound | <img src="https://via.placeholder.com/50/ff4444/ffffff?text=MH" width="40" height="40" style="border-radius: 50%"> |
-| 3 | **🧪 METH MAN** | Meth House | <img src="https://via.placeholder.com/50/ff4444/ffffff?text=MM" width="40" height="40" style="border-radius: 50%"> |
-| 4 | **🌿 RASTA** | Smoke House | <img src="https://via.placeholder.com/50/ff4444/ffffff?text=RS" width="40" height="40" style="border-radius: 50%"> |
-| 5 | **📚 PROFESSOR X** | Scripts | <img src="https://via.placeholder.com/50/ff4444/ffffff?text=PX" width="40" height="40" style="border-radius: 50%"> |
-
-</div>
+| # | Character Name | Starting Location |
+|---|----------------|-------------------|
+| 1 | **COKALINA** | Crack House |
+| 2 | **MR. H** | Dog Pound |
+| 3 | **METH MAN** | Meth House |
+| 4 | **RASTA** | Smoke House |
+| 5 | **PROFESSOR X** | Scripts |
 
 **Team Win Condition:** Hustle up **$1,000,000** and retire.
 
@@ -162,41 +136,31 @@
 
 ### THE UGLY TAKERS (Team 3 - Move Last)
 
-<div align="center">
-  
-| # | Character | Starting Location | Special Ability | Avatar |
-|---|-----------|-------------------|-----------------|--------|
-| 1 | **🖐️ 5-FINGERS** | Shelter | Robs/stabs → Hospital | <img src="https://via.placeholder.com/50/8b0000/ffffff?text=5F" width="40" height="40" style="border-radius: 50%"> |
-| 2 | **👊 BULLY D. WILLIAMS** | Arcade | Beats up/robs → Hospital | <img src="https://via.placeholder.com/50/8b0000/ffffff?text=BD" width="40" height="40" style="border-radius: 50%"> |
-| 3 | **💋 MRS. SEXY** | Lap Dance Club | Infects with STI → Hospital | <img src="https://via.placeholder.com/50/8b0000/ffffff?text=MS" width="40" height="40" style="border-radius: 50%"> |
-| 4 | **👮‍♂️ CROOKED COP** | Fed Sub-Holding | Arrests all (except LAMA) → Jail | <img src="https://via.placeholder.com/50/8b0000/ffffff?text=CC" width="40" height="40" style="border-radius: 50%"> |
-| 5 | **💀 LAMA / LAMAX** | Unda-Boss Corner | **BOARD KILLER** → Cemetery | <img src="https://via.placeholder.com/50/8b0000/ffffff?text=LM" width="40" height="40" style="border-radius: 50%"> |
-
-</div>
+| # | Character Name | Starting Location | Special Ability |
+|---|----------------|-------------------|-----------------|
+| 1 | **5-FINGERS** | Shelter | Robs/stabs → Hospital |
+| 2 | **BULLY D. WILLIAMS** | Arcade | Beats up/robs → Hospital |
+| 3 | **MRS. SEXY** | Lap Dance Club | Infects with STI → Hospital |
+| 4 | **CROOKED COP** | Fed Sub-Holding | Arrests all (except LAMA) → Jail |
+| 5 | **LAMA / LAMAX** | Unda-Boss Corner | **BOARD KILLER** → Cemetery |
 
 **Team Goal:** Eliminate all other players and cause mayhem.
 
 **Important:** Crooked Cop and LAMA **cannot be defended against** in a Struggle.
-
-<p align="center">
-  <img src="https://via.placeholder.com/800x200/1a1a2e/ff4444?text=ALL+14+CHARACTERS+-+SLIDING+VIEW" alt="All Characters Slider">
-</p>
-
-> **🔄 Swipe/Slide to see all characters →**
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Backend
-| Technology | Version | Purpose | Icon |
-|------------|---------|---------|------|
-| Node.js | v20+ | Runtime environment | <img src="https://via.placeholder.com/20/68a063/ffffff?text=N" width="20" height="20"> |
-| Express.js | v4.18+ | REST API framework | <img src="https://via.placeholder.com/20/000000/ffffff?text=E" width="20" height="20"> |
-| Socket.io | v4.5+ | Real-time multiplayer sync | <img src="https://via.placeholder.com/20/010101/ffffff?text=S" width="20" height="20"> |
-| MongoDB | v6+ | Primary database | <img src="https://via.placeholder.com/20/47A248/ffffff?text=M" width="20" height="20"> |
-| Redis | v7+ | Session management & caching | <img src="https://via.placeholder.com/20/DC382D/ffffff?text=R" width="20" height="20"> |
-| JWT | v9+ | Authentication | <img src="https://via.placeholder.com/20/000000/ffffff?text=J" width="20" height="20"> |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Node.js | v20+ | Runtime environment |
+| Express.js | v4.18+ | REST API framework |
+| Socket.io | v4.5+ | Real-time multiplayer sync |
+| MongoDB | v6+ | Primary database |
+| Redis | v7+ | Session management & caching |
+| JWT | v9+ | Authentication |
 
 ### Discord Bot
 | Technology | Version | Purpose |
@@ -211,8 +175,6 @@
 | React Native | v0.72+ | Cross-platform mobile |
 | Redux Toolkit | v1.9+ | State management |
 | React Navigation | v6+ | Screen routing |
-| React Native Reanimated | v3+ | Smooth animations |
-| React Native Gesture Handler | v2+ | Swipe/slide gestures |
 
 ### Payments & Infrastructure
 | Technology | Purpose |
@@ -249,29 +211,19 @@
 └─────────────┘     └─────────────────┘     └─────────────┘
 ```
 
-<p align="center">
-  <img src="https://via.placeholder.com/900x400/1a1a2e/ffffff?text=SYSTEM+ARCHITECTURE+DIAGRAM" alt="System Architecture Diagram" width="90%">
-</p>
-
-> **🔍 Click to zoom | 📱 Responsive design**
-
 ### Data Flow (Player Move Example)
 
-<div align="center">
-  
-| Step | Action | Animation |
-|:---:|--------|:---:|
-| 1️⃣ | User types `/roll` in Discord | 💬 |
-| 2️⃣ | Bot sends API request → Backend | ⚡ |
-| 3️⃣ | Backend calculates new position | 🎲 |
-| 4️⃣ | Checks for special squares (Jail/Hospital/Cemetery) | 🔍 |
-| 5️⃣ | Checks for TAKES (landing on other players) | ⚔️ |
-| 6️⃣ | Updates database with new positions and money | 💾 |
-| 7️⃣ | Sends WebSocket event to mobile app (if open) | 📱 |
-| 8️⃣ | Bot generates new board image via Canvas | 🎨 |
-| 9️⃣ | User sees result in Discord | ✅ |
-
-</div>
+```
+1. User types /roll in Discord
+2. Bot sends API request → Backend
+3. Backend calculates new position
+4. Checks for special squares (Jail/Hospital/Cemetery)
+5. Checks for TAKES (landing on other players)
+6. Updates database with new positions and money
+7. Sends WebSocket event to mobile app (if open)
+8. Bot generates new board image via Canvas
+9. User sees result in Discord
+```
 
 ---
 
@@ -322,32 +274,28 @@
 - [ ] Replay system
 - [ ] Custom dice skins
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x150/1a1a2e/00ff00?text=PHASE+1+→+PHASE+2+→+PHASE+3+[PROGRESS+BAR]" alt="Feature Progress Timeline" width="80%">
-</p>
-
 ---
 
 ## 📦 Prerequisites
 
 ### Software Requirements
 
-| Requirement | Version | Check Command | Status |
-|-------------|---------|---------------|--------|
-| Node.js | v20+ | `node --version` | ✅ |
-| npm | v9+ | `npm --version` | ✅ |
-| MongoDB | v6+ | `mongod --version` | ✅ |
-| Redis | v7+ | `redis-server --version` | ✅ |
-| Git | latest | `git --version` | ✅ |
+| Requirement | Version | Check Command |
+|-------------|---------|---------------|
+| Node.js | v20+ | `node --version` |
+| npm | v9+ | `npm --version` |
+| MongoDB | v6+ | `mongod --version` |
+| Redis | v7+ | `redis-server --version` |
+| Git | latest | `git --version` |
 
 ### Required Accounts
 
-| Service | Purpose | Cost | Sign Up |
-|---------|---------|------|---------|
-| [Discord Developer Portal](https://discord.com/developers/applications) | Bot token | Free | [Link](https://discord.com/developers/applications) |
-| [MongoDB Atlas](https://www.mongodb.com/atlas) | Cloud database | Free tier available | [Link](https://www.mongodb.com/atlas) |
-| [Stripe](https://stripe.com) | Payment processing (Phase 2) | Free to start | [Link](https://stripe.com) |
-| [Render](https://render.com) | Hosting (optional) | Free tier available | [Link](https://render.com) |
+| Service | Purpose | Cost |
+|---------|---------|------|
+| [Discord Developer Portal](https://discord.com/developers/applications) | Bot token | Free |
+| [MongoDB Atlas](https://www.mongodb.com/atlas) | Cloud database | Free tier available |
+| [Stripe](https://stripe.com) | Payment processing (Phase 2) | Free to start |
+| [Render](https://render.com) | Hosting (optional) | Free tier available |
 
 ---
 
@@ -424,16 +372,11 @@ Use this URL pattern (replace `YOUR_BOT_ID`):
 https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot%20applications.commands
 ```
 
-<p align="center">
-  <img src="https://via.placeholder.com/600x300/1a1a2e/00ff00?text=SETUP+COMPLETE+✓" alt="Setup Complete" width="60%">
-</p>
-
 ---
 
 ## 🔐 Environment Variables
 
-<details>
-<summary><b>📁 Click to expand - Backend `.env`</b></summary>
+### Backend `.env`
 
 ```env
 # Server
@@ -472,24 +415,20 @@ AWS_REGION=us-east-1
 ADMIN_EMAIL=admin@gangstaisland.com
 ADMIN_PASSWORD_HASH=$2a$10$xxxxxxxxxxxxxxxxx
 ```
-</details>
 
-<details>
-<summary><b>🤖 Click to expand - Discord Bot `.env`</b></summary>
+### Discord Bot `.env`
 
 ```env
 DISCORD_BOT_TOKEN=your_bot_token_here
 DISCORD_CLIENT_ID=123456789012345678
 API_BASE_URL=http://localhost:5000/api
 ```
-</details>
 
 ---
 
 ## 🗄 Database Schema
 
-<details>
-<summary><b>👥 Click to expand - Users Collection</b></summary>
+### Users Collection
 
 ```javascript
 {
@@ -520,10 +459,8 @@ API_BASE_URL=http://localhost:5000/api
   lastActive: ISODate
 }
 ```
-</details>
 
-<details>
-<summary><b>🎮 Click to expand - Games Collection</b></summary>
+### Games Collection
 
 ```javascript
 {
@@ -556,7 +493,7 @@ API_BASE_URL=http://localhost:5000/api
   turnOrder: ["bad_hustlas", "good_guys", "ugly_takers"],
   
   // Game state
-  atmbf: 0,                   // Armored Truck Money Bag Fall total
+  at mbf: 0,                  // Armored Truck Money Bag Fall total
   lottery: 5000000,           // $5,000,000 lottery
   snitchActive: false,
   
@@ -569,10 +506,8 @@ API_BASE_URL=http://localhost:5000/api
   updatedAt: ISODate
 }
 ```
-</details>
 
-<details>
-<summary><b>🃏 Click to expand - Cards Collection</b></summary>
+### Cards Collection
 
 ```javascript
 // Life Cards
@@ -605,11 +540,6 @@ API_BASE_URL=http://localhost:5000/api
   effect: "Protects ATM funds in cemetery, inherit funds"
 }
 ```
-</details>
-
-<p align="center">
-  <img src="https://via.placeholder.com/800x400/1a1a2e/ffffff?text=DATABASE+ERD+DIAGRAM" alt="Database ERD" width="80%">
-</p>
 
 ---
 
@@ -629,45 +559,37 @@ Authorization: Bearer <jwt_token>
 
 ### Endpoints
 
-<div align="center">
-
-#### 🔐 Auth
+#### Auth
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `POST` | `/auth/discord` | Login with Discord OAuth |
-| `GET` | `/auth/verify` | Verify JWT token |
-| `POST` | `/auth/logout` | Logout user |
+| POST | `/auth/discord` | Login with Discord OAuth |
+| GET | `/auth/verify` | Verify JWT token |
+| POST | `/auth/logout` | Logout user |
 
-#### 👤 Users
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| `GET` | `/users/me` | Get current user profile |
-| `PUT` | `/users/me` | Update user profile |
-| `GET` | `/users/me/stats` | Get user statistics |
-| `GET` | `/users/leaderboard` | Get top players |
-
-#### 🎮 Games
+#### Users
 
 | Method | Endpoint | Description |
 |--------|----------|-------------|
-| `POST` | `/games/create` | Create new game lobby |
-| `POST` | `/games/join/:code` | Join game by code |
-| `GET` | `/games/:id` | Get game details |
-| `POST` | `/games/:id/roll` | Roll dice and move |
-| `POST` | `/games/:id/hustle` | BAD HUSTLAS: Get your hustle on |
-| `POST` | `/games/:id/struggle` | Defend against TAKER |
-| `POST` | `/games/:id/use-card` | Use a Life Card |
-| `POST` | `/games/:id/bank-run` | Call BANK RUN to deposit |
-| `POST` | `/games/:id/my-money` | Call MY MONEY on violation |
-| `POST` | `/games/:id/leave` | Leave game |
+| GET | `/users/me` | Get current user profile |
+| PUT | `/users/me` | Update user profile |
+| GET | `/users/me/stats` | Get user statistics |
+| GET | `/users/leaderboard` | Get top players |
 
-</div>
+#### Games
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x300/1a1a2e/00ff00?text=API+TESTING+WITH+POSTMAN" alt="API Testing" width="80%">
-</p>
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| POST | `/games/create` | Create new game lobby |
+| POST | `/games/join/:code` | Join game by code |
+| GET | `/games/:id` | Get game details |
+| POST | `/games/:id/roll` | Roll dice and move |
+| POST | `/games/:id/hustle` | BAD HUSTLAS: Get your hustle on |
+| POST | `/games/:id/struggle` | Defend against TAKER |
+| POST | `/games/:id/use-card` | Use a Life Card |
+| POST | `/games/:id/bank-run` | Call BANK RUN to deposit |
+| POST | `/games/:id/my-money` | Call MY MONEY on violation |
+| POST | `/games/:id/leave` | Leave game |
 
 ---
 
@@ -675,8 +597,6 @@ Authorization: Bearer <jwt_token>
 
 ### Player Commands
 
-<div align="center">
-  
 | Command | Description | Example |
 |---------|-------------|---------|
 | `/register` | Register account | `/register` |
@@ -695,8 +615,6 @@ Authorization: Bearer <jwt_token>
 | `/leaderboard` | Show top players | `/leaderboard` |
 | `/help` | Show all commands | `/help` |
 
-</div>
-
 ### Admin Commands
 
 | Command | Description |
@@ -709,8 +627,7 @@ Authorization: Bearer <jwt_token>
 
 ### Bot Response Examples
 
-<details>
-<summary><b>🎲 Click to see `/roll` response example</b></summary>
+#### When user types `/roll`:
 
 ```
 🎲 **Player1 (METH MAN - BAD HUSTLA) rolled a 7!**
@@ -728,10 +645,8 @@ Authorization: Bearer <jwt_token>
 
 📊 **Next turn: Player2 (OFFICER FRIENDLY - GOOD GUY)**
 ```
-</details>
 
-<details>
-<summary><b>💰 Click to see `/hustle` response example</b></summary>
+#### When BAD HUSTLA uses `/hustle`:
 
 ```
 💰 **METH MAN is GETTING THEIR HUSTLE ON!**
@@ -744,10 +659,8 @@ Risk: Lose it all if next roll fails!
 
 💰 **Current Hustle Pot:** $6,000
 ```
-</details>
 
-<details>
-<summary><b>⚠️ Click to see TAKE response example</b></summary>
+#### When TAKER takes a player:
 
 ```
 ⚠️ **TAKE!** LAMA landed on KING CERVUS!
@@ -761,7 +674,6 @@ Risk: Lose it all if next roll fails!
 
 💀 **KING CERVUS has 2 LIFE CARDS remaining**
 ```
-</details>
 
 ---
 
@@ -829,10 +741,6 @@ class DiceSystem {
   }
 }
 ```
-
-<p align="center">
-  <img src="https://via.placeholder.com/600x200/1a1a2e/ffd700?text=DICE+ROLLING+ANIMATION+🎲" alt="Dice Animation" width="60%">
-</p>
 
 ### HUSTLE System (BAD HUSTLAS only)
 
@@ -1067,27 +975,17 @@ class StackingSystem {
 
 ### Square Types and Effects
 
-<div align="center">
-  
-| Square | Effect | Icon | Implementation |
-|--------|--------|------|----------------|
-| **JAIL** | Player misses turns, ATM funds released | 🚔 | `isInJail: true, jailTurnsLeft: 2` |
-| **HOSPITAL** | After losing LIFE CARD to vulnerable TAKER | 🏥 | `isInHospital: true, hospitalTurnsLeft: 1` |
-| **CEMETERY** | Lose LIFE CARD + ALL money + ATM funds | 💀 | `isInCemetery: true, money: 0, atmFunds: 0` |
-| **LAKEFRONT CONDOS** | Double hustle money | 💰💰 | `hustleMultiplier: 2` |
-| **DA CARTER** | Triple hustle money | 💰💰💰 | `hustleMultiplier: 3` |
-| **BAIL BONDS** | Purchase Bond Out Cards | ⚖️ | `canPurchase: 'bond_out'` |
-| **LAWYER'S OFFICE** | Purchase Bond Out Cards | 📜 | `canPurchase: 'bond_out'` |
-| **BITTERSWEET LIFE** | Purchase Beneficiary Cards | 📄 | `canPurchase: 'beneficiary'` |
-| **ENTRY SPOTS** | Trigger HUSTLE for BAD HUSTLAS | 🚪 | `isEntryPoint: true` |
-
-</div>
-
-<p align="center">
-  <img src="https://via.placeholder.com/900x300/1a1a2e/ffffff?text=BOARD+MAP+WITH+SPECIAL+SQUARES" alt="Board Map" width="90%">
-</p>
-
-> **🔄 Scroll horizontally to see full board →**
+| Square | Effect | Implementation |
+|--------|--------|----------------|
+| **JAIL** | Player misses turns, ATM funds released | `isInJail: true, jailTurnsLeft: 2` |
+| **HOSPITAL** | After losing LIFE CARD to vulnerable TAKER | `isInHospital: true, hospitalTurnsLeft: 1` |
+| **CEMETERY** | Lose LIFE CARD + ALL money + ATM funds | `isInCemetery: true, money: 0, atmFunds: 0` |
+| **LAKEFRONT CONDOS** | Double hustle money | `hustleMultiplier: 2` |
+| **DA CARTER** | Triple hustle money | `hustleMultiplier: 3` |
+| **BAIL BONDS** | Purchase Bond Out Cards | `canPurchase: 'bond_out'` |
+| **LAWYER'S OFFICE** | Purchase Bond Out Cards | `canPurchase: 'bond_out'` |
+| **BITTERSWEET LIFE** | Purchase Beneficiary Cards | `canPurchase: 'beneficiary'` |
+| **ENTRY SPOTS** | Trigger HUSTLE for BAD HUSTLAS | `isEntryPoint: true` |
 
 ### Special Square Implementation
 
@@ -1136,24 +1034,14 @@ class SpecialSquareHandler {
 
 ### Card Types Summary
 
-<div align="center">
-  
-| Card Type | Price | Max Own | Where to Buy | Effect | Image |
-|-----------|-------|---------|--------------|--------|-------|
-| **Life Card** | Starting: 3 | 3 | Cryo Gene Clinic ($250k) | Extra life | 🃏 |
-| **Bond Out Card** | $10,000 | 3 | Bail Bonds / Lawyer's Office | Protects ATM in jail | 🔐 |
-| **Beneficiary Card** | $50,000 | 3 | Bittersweet Life | Protects ATM in cemetery | 📜 |
-| **Jail Card** | N/A | N/A | Pulled in jail | Various jail effects | 🚔 |
-| **Hospital Card** | N/A | N/A | Pulled in hospital | Various hospital effects | 🏥 |
-| **Cemetery Card** | N/A | N/A | Pulled in cemetery | Various cemetery effects | 💀 |
-
-</div>
-
-<p align="center">
-  <img src="https://via.placeholder.com/800x200/1a1a2e/ffffff?text=CARD+DECK+-+SLIDING+CARDS+VIEW" alt="Card Deck Slider" width="80%">
-</p>
-
-> **🔄 Swipe to see all card types →**
+| Card Type | Price | Max Own | Where to Buy | Effect |
+|-----------|-------|---------|--------------|--------|
+| **Life Card** | Starting: 3 | 3 | Cryo Gene Clinic ($250k) | Extra life |
+| **Bond Out Card** | $10,000 | 3 | Bail Bonds / Lawyer's Office | Protects ATM in jail |
+| **Beneficiary Card** | $50,000 | 3 | Bittersweet Life | Protects ATM in cemetery |
+| **Jail Card** | N/A | N/A | Pulled in jail | Various jail effects |
+| **Hospital Card** | N/A | N/A | Pulled in hospital | Various hospital effects |
+| **Cemetery Card** | N/A | N/A | Pulled in cemetery | Various cemetery effects |
 
 ### Card Implementation
 
@@ -1277,25 +1165,17 @@ class ATMBFSystem {
 }
 ```
 
-<p align="center">
-  <img src="https://via.placeholder.com/600x200/1a1a2e/ffd700?text=ATM+INTERFACE+SCREEN" alt="ATM Interface" width="60%">
-</p>
-
 ---
 
 ## 📊 Milestone Breakdown
 
-<div align="center">
-  
-| Milestone | Deliverables | Timeline | Payment | Progress |
-|-----------|--------------|----------|---------|----------|
-| **M1** | Discord bot + all core game logic (14 characters, 3 teams, HUSTLE, TAKE, STRUGGLE, STACKING, special squares, basic Life Cards, Play Money) | 4-5 weeks | $1,000 | ▰▰▰▰▰▰▰▰▰▰ 0% |
-| **M2** | Currency system + backend + real-money wallet (Stripe) + database + ATM/BANK RUN/MY MONEY system | 2-3 weeks | $1,500 | ▰▰▰▰▰▰▰▰▰▰ 0% |
-| **M3** | Mobile app (React Native) + UI + board sync with Discord + Card purchase system | 3-4 weeks | $1,500 | ▰▰▰▰▰▰▰▰▰▰ 0% |
-| **M4** | Admin panel + withdrawals + tournaments + final polish + Bond Out/Beneficiary Cards | 2-3 weeks | $1,500 | ▰▰▰▰▰▰▰▰▰▰ 0% |
-| **TOTAL** | | **10-12 weeks** | **$5,500** | |
-
-</div>
+| Milestone | Deliverables | Timeline | Payment |
+|-----------|--------------|----------|---------|
+| **M1** | Discord bot + all core game logic (14 characters, 3 teams, HUSTLE, TAKE, STRUGGLE, STACKING, special squares, basic Life Cards, Play Money) | 4-5 weeks | $1,000 |
+| **M2** | Currency system + backend + real-money wallet (Stripe) + database + ATM/BANK RUN/MY MONEY system | 2-3 weeks | $1,500 |
+| **M3** | Mobile app (React Native) + UI + board sync with Discord + Card purchase system | 3-4 weeks | $1,500 |
+| **M4** | Admin panel + withdrawals + tournaments + final polish + Bond Out/Beneficiary Cards | 2-3 weeks | $1,500 |
+| **TOTAL** | | **10-12 weeks** | **$5,500** |
 
 ### Minimum Launch Version (Discord Only)
 - **Price:** $3,500
@@ -1303,16 +1183,9 @@ class ATMBFSystem {
 - **Includes:** M1 only (no mobile app, no real payments, no ATM system)
 - **Good for:** Testing gameplay, building community, practice mode
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x100/1a1a2e/00ff00?text=MILESTONE+PROGRESS+BAR" alt="Milestone Progress" width="80%">
-</p>
-
 ---
 
 ## 📁 Folder Structure
-
-<details>
-<summary><b>📂 Click to expand - Complete Folder Structure</b></summary>
 
 ```
 gangsta-island/
@@ -1350,7 +1223,7 @@ gangsta-island/
 │   │   │   └── discord.service.js
 │   │   ├── utils/
 │   │   │   ├── logger.js
-│   │   │   ├── constants.js
+│   │   │   ├── constants.js  (Characters, squares, cards)
 │   │   │   └── helpers.js
 │   │   ├── config/
 │   │   │   ├── database.js
@@ -1380,7 +1253,7 @@ gangsta-island/
 │   │   │   ├── ready.js
 │   │   │   └── interactionCreate.js
 │   │   ├── utils/
-│   │   │   ├── boardRenderer.js
+│   │   │   ├── boardRenderer.js  (Canvas image generation)
 │   │   │   ├── embeds.js
 │   │   │   └── api.js
 │   │   └── index.js
@@ -1423,16 +1296,15 @@ gangsta-island/
 │   └── package.json
 │
 ├── constants/
-│   ├── characters.js
-│   ├── squares.js
-│   ├── cards.js
-│   └── rules.js
+│   ├── characters.js      (All 14 characters with teams and starting positions)
+│   ├── squares.js         (Board squares 1-101 with types)
+│   ├── cards.js           (All card definitions)
+│   └── rules.js           (Game constants: win amounts, turn orders, etc.)
 │
 ├── docker-compose.yml
 ├── README.md
 └── .gitignore
 ```
-</details>
 
 ### Constants File Example (`constants/characters.js`)
 
@@ -1546,10 +1418,6 @@ Run with:
 docker-compose up -d
 ```
 
-<p align="center">
-  <img src="https://via.placeholder.com/800x200/1a1a2e/00ff00?text=DEPLOYMENT+STATUS:+READY" alt="Deployment Status" width="80%">
-</p>
-
 ---
 
 ## 🧪 Testing
@@ -1602,16 +1470,10 @@ describe('Dice System', () => {
 });
 ```
 
-<p align="center">
-  <img src="https://via.placeholder.com/600x150/1a1a2e/00ff00?text=TESTS:+PASSING+✓" alt="Test Results" width="60%">
-</p>
-
 ---
 
 ## 🔧 Troubleshooting
 
-<div align="center">
-  
 | Issue | Solution |
 |-------|----------|
 | Discord bot not responding | Check bot token in `.env`. Regenerate token in Discord Developer Portal |
@@ -1621,8 +1483,6 @@ describe('Dice System', () => {
 | WebSocket connection drops | Check firewall. Increase timeout in `socket.io` config |
 | HUSTLE not working | Verify player is BAD HUSTLA and on entry spot |
 | STRUGGLE not triggering | Check if TAKER is vulnerable (not Crooked Cop or LAMA) |
-
-</div>
 
 ---
 
@@ -1663,15 +1523,11 @@ cd discord-bot && npm start
 
 ## 📞 Support & Contact
 
-<div align="center">
-  
 | Role | Contact |
 |------|---------|
-| 👨‍💻 **Lead Developer** | Zahid Ghotia (Full Stack Developer) |
-| 👤 **Project Owner** | [Client Name] |
-| 🌐 **Official Game Site** | https://gameofchase.com |
-
-</div>
+| Lead Developer | Zahid Ghotia (Full Stack Developer) |
+| Project Owner | [Client Name] |
+| Official Game Site | https://gameofchase.com |
 
 ---
 
@@ -1683,5 +1539,6 @@ This project is proprietary and confidential.
 
 ---
 
-<p align="center">
-  <img src="https://via.placeholder.com/400x100/1a1a2e/ffd700?text=GANGS
+**End of README**
+
+---
