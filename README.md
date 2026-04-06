@@ -12,25 +12,29 @@
 1. [Project Overview](#project-overview)
 2. [Game Rules Summary](#game-rules-summary)
 3. [Characters & Teams](#characters--teams)
-4. [Tech Stack](#tech-stack)
-5. [System Architecture](#system-architecture)
-6. [Features by Phase](#features-by-phase)
-7. [Prerequisites](#prerequisites)
-8. [Installation & Setup](#installation--setup)
-9. [Environment Variables](#environment-variables)
-10. [Database Schema](#database-schema)
-11. [API Documentation](#api-documentation)
-12. [Discord Bot Commands](#discord-bot-commands)
-13. [Core Game Logic](#core-game-logic)
-14. [Special Squares & Effects](#special-squares--effects)
-15. [Card System](#card-system)
-16. [Money & Banking System](#money--banking-system)
-17. [Milestone Breakdown](#milestone-breakdown)
-18. [Folder Structure](#folder-structure)
-19. [Deployment](#deployment)
-20. [Testing](#testing)
-21. [Troubleshooting](#troubleshooting)
-22. [Quick Start for Developers](#quick-start-for-developers)
+4. [Board Map (101 Squares)](#board-map-101-squares)
+5. [Special Squares & Locations](#special-squares--locations)
+6. [Teleport Mapping](#teleport-mapping)
+7. [Card Purchase Locations](#card-purchase-locations)
+8. [Tech Stack](#tech-stack)
+9. [System Architecture](#system-architecture)
+10. [Features by Phase](#features-by-phase)
+11. [Prerequisites](#prerequisites)
+12. [Installation & Setup](#installation--setup)
+13. [Environment Variables](#environment-variables)
+14. [Database Schema](#database-schema)
+15. [API Documentation](#api-documentation)
+16. [Discord Bot Commands](#discord-bot-commands)
+17. [Core Game Logic](#core-game-logic)
+18. [Special Squares & Effects](#special-squares--effects)
+19. [Card System](#card-system)
+20. [Money & Banking System](#money--banking-system)
+21. [Milestone Breakdown](#milestone-breakdown)
+22. [Folder Structure](#folder-structure)
+23. [Deployment](#deployment)
+24. [Testing](#testing)
+25. [Troubleshooting](#troubleshooting)
+26. [Quick Start for Developers](#quick-start-for-developers)
 
 ---
 
@@ -150,6 +154,184 @@
 
 ---
 
+## 🗺️ Board Map (101 Squares)
+
+### Square Distribution (Based on Images + Website Analysis)
+
+| Square Range | Type | Count |
+|--------------|------|-------|
+| #1 to #85 | Normal Streets | 85 squares |
+| #86 to #101 | Special Squares | 16 squares |
+| **TOTAL** | | **101 squares** |
+
+### Normal Streets (#1 to #85)
+
+```
+#1    START / Drug Free Zone (King Cervus)
+#2    17TH LIGHTNING STREET
+#3    18TH CONNECTICUT
+#4    19TH CONNECTICUT
+#5    20TH CONNECTICUT
+#6    21ST COLOR DOORS
+#7    22ND COLOR DOORS
+#8    23RD COLOR DOORS
+#9    24TH CONNECTICUT
+#10   25TH JEFFERSON
+#11   26TH JEFFERSON
+#12   27TH JEFFERSON
+#13   28TH JEFFERSON
+#14   29TH JEFFERSON
+#15   30TH JEFFERSON
+#16   31ST JEFFERSON
+#17   32ND JEFFERSON
+#18   33RD JEFFERSON
+#19   34TH JEFFERSON
+#20   35TH JEFFERSON
+#21   36TH JEFFERSON
+#22   37TH JEFFERSON
+#23   38TH JEFFERSON
+#24   39TH JEFFERSON
+#25   40TH JEFFERSON
+#26   41ST JEFFERSON
+#27   42ND JEFFERSON
+#28   43RD JEFFERSON
+#29   44TH JEFFERSON
+#30   45TH JEFFERSON
+#31   46TH JEFFERSON
+#32   47TH JEFFERSON
+#33   48TH JEFFERSON
+#34   49TH JEFFERSON
+#35   50TH JEFFERSON
+#36   51ST JEFFERSON
+#37   52ND JEFFERSON
+#38   53RD JEFFERSON
+#39   54TH JEFFERSON
+#40   55TH JEFFERSON
+#41   56TH JEFFERSON
+#42   57TH JEFFERSON
+#43   58TH JEFFERSON
+#44   59TH JEFFERSON
+#45   60TH JEFFERSON
+#46   61ST JEFFERSON
+#47   62ND JEFFERSON
+#48   63RD JEFFERSON
+#49   64TH JEFFERSON
+#50   65TH JEFFERSON
+#51   66TH JEFFERSON
+#52   67TH JEFFERSON
+#53   68TH JEFFERSON
+#54   69TH JEFFERSON
+#55   70TH JEFFERSON
+#56   71ST JEFFERSON
+#57   72ND JEFFERSON
+#58   73RD JEFFERSON
+#59   74TH JEFFERSON
+#60   75TH JEFFERSON
+#61   76TH JEFFERSON
+#62   77TH JEFFERSON
+#63   78TH JEFFERSON
+#64   79TH JEFFERSON
+#65   80TH JEFFERSON
+#66   81ST JEFFERSON
+#67   82ND JEFFERSON
+#68   83RD JEFFERSON
+#69   84TH JEFFERSON
+#70   85TH JEFFERSON
+#71   86TH JEFFERSON
+#72   87TH JEFFERSON
+#73   88TH JEFFERSON
+#74   89TH JEFFERSON
+#75   90TH JEFFERSON
+#76   91ST JEFFERSON
+#77   92ND JEFFERSON
+#78   93RD JEFFERSON
+#79   94TH JEFFERSON
+#80   95TH JEFFERSON
+#81   96TH JEFFERSON
+#82   97TH JEFFERSON
+#83   98TH JEFFERSON
+#84   99TH JEFFERSON
+#85   100TH JEFFERSON
+```
+
+---
+
+## 🏢 Special Squares & Locations (#86 to #101)
+
+| Square # | Name | Type | Effect |
+|----------|------|------|--------|
+| 86 | **HOSPITAL** | Penalty | Lose 1 turn, pull Hospital Card |
+| 87 | **BASE OF MONEY** | Reward | Collect money |
+| 88 | **AIRBORNE** | Teleport | Jump to another square |
+| 89 | **METH HOUSE** | Penalty | Lose turn, pay money |
+| 90 | **JAIL** | Lock | Miss 2 turns, ATM funds released |
+| 91 | **SHELTER** | Safe | Protected from next penalty |
+| 92 | **LUCKY'S** | Special | ? |
+| 93 | **UNION BOSS** | Special | ? |
+| 94 | **MANSTON** | Special | ? |
+| 95 | **HELPO PAD** | Special | ? |
+| 96 | **JARED** | Special | ? |
+| 97 | **GLEN PYM** | Special | ? |
+| 98 | **CEMETERY** | Reset | Lose LIFE CARD + all money |
+| 99 | **THE GAME** | Special | ? |
+| 100 | **SHELTER** | Safe | Protected |
+| 101 | **CHASE 101** | Win | WIN THE GAME |
+
+---
+
+## 🔄 Teleport Mapping
+
+| From Square | To Square | Notes |
+|-------------|-----------|-------|
+| **AIRBORNE (#88)** | TBD (Client to confirm) | Teleport destination |
+| **Additional Teleports** | TBD (Client to confirm) | If any |
+
+---
+
+## 💳 Card Purchase Locations
+
+| Location | Square # | Card Type | Price | Max Own |
+|----------|----------|-----------|-------|---------|
+| **CRYO GENE CLINIC** | TBD | Life Card | $250,000 | 3 |
+| **BAIL BONDS** | TBD | Bond Out Card | $10,000 | 3 |
+| **LAWYER'S OFFICE** | TBD | Bond Out Card | $10,000 | 3 |
+| **BITTERSWEET LIFE** | TBD | Beneficiary Card | $50,000 | 3 |
+
+---
+
+## 🃏 Life Cards (From Images)
+
+Based on client images, these Life Cards have been identified:
+
+| Card Name | Type | Effect |
+|-----------|------|--------|
+| **THE GATE OF CAFE - CEMETERY CARD** | Cemetery Card | Escape cemetery effects |
+| **THE GATE OF CAFE - NOSTRIA CARD** | Special | Unknown effect |
+| **THE GATE OF CAFE - CAFE CARD** | Reward | Collect money/advantage |
+
+---
+
+## 📍 Character Starting Positions
+
+| Character | Starting Location | Assumed Square # |
+|-----------|-------------------|------------------|
+| KING CERVUS | Drug Free Zone | #1 |
+| REVEREND | Church | #2 |
+| OFFICER FRIENDLY | Breakfast Shop | #3 |
+| COUNSELOR MOM | Bus Stop | #4 |
+| COKALINA | Crack House | #5 |
+| MR. H | Dog Pound | #6 |
+| METH MAN | Meth House | #7 |
+| RASTA | Smoke House | #8 |
+| PROFESSOR X | Scripts | #9 |
+| 5-FINGERS | Shelter | #10 |
+| BULLY D. WILLIAMS | Arcade | #11 |
+| MRS. SEXY | Lap Dance Club | #12 |
+| CROOKED COP | Fed Sub-Holding | #13 |
+| LAMA | Unda-Boss Corner | #14 |
+
+---
+
 ## 🛠 Tech Stack
 
 ### Backend
@@ -232,22 +414,22 @@
 ### Phase 1 - MVP (Discord Bot + Core Logic)
 **Timeline: 4-5 weeks | Price: $3,500**
 
-- [x] Discord bot with slash commands
-- [x] User registration (Discord OAuth)
-- [x] Create/join game lobbies (2-14 players)
-- [x] 6 dice roll mechanism
-- [x] Movement on board
-- [x] 3 team system (Good Guys, Bad Hustlas, Ugly Takers)
-- [x] Turn order management
-- [x] HUSTLE system for BAD HUSTLAS
-- [x] TAKE system (landing on opponents)
-- [x] STRUGGLE system (defense against TAKERS)
-- [x] STACKING bonuses
-- [x] Special squares (Jail, Hospital, Cemetery)
-- [x] Basic Life Cards
-- [x] Play Money system (practice mode)
-- [x] Dynamic board image generation
-- [x] Win condition checking
+- [ ] Discord bot with slash commands
+- [ ] User registration (Discord OAuth)
+- [ ] Create/join game lobbies (2-14 players)
+- [ ] 6 dice roll mechanism
+- [ ] Movement on board
+- [ ] 3 team system (Good Guys, Bad Hustlas, Ugly Takers)
+- [ ] Turn order management
+- [ ] HUSTLE system for BAD HUSTLAS
+- [ ] TAKE system (landing on opponents)
+- [ ] STRUGGLE system (defense against TAKERS)
+- [ ] STACKING bonuses
+- [ ] Special squares (Jail, Hospital, Cemetery)
+- [ ] Basic Life Cards
+- [ ] Play Money system (practice mode)
+- [ ] Dynamic board image generation
+- [ ] Win condition checking
 
 ### Phase 2 - Full Production
 **Timeline: 10-12 weeks | Price: $5,500 (total including Phase 1)**
@@ -493,7 +675,7 @@ API_BASE_URL=http://localhost:5000/api
   turnOrder: ["bad_hustlas", "good_guys", "ugly_takers"],
   
   // Game state
-  at mbf: 0,                  // Armored Truck Money Bag Fall total
+  atmbf: 0,                   // Armored Truck Money Bag Fall total
   lottery: 5000000,           // $5,000,000 lottery
   snitchActive: false,
   
@@ -1338,6 +1520,54 @@ const WIN_AMOUNTS = {
   goodGuys: 2000000,  // Team total $2M
   badHustlas: 1000000,
   uglyTakers: 1000000
+};
+```
+
+### Constants File Example (`constants/squares.js`)
+
+```javascript
+// Board squares 1-101 with types
+const SQUARES = {
+  1: { name: "START / Drug Free Zone", type: "start" },
+  2: { name: "17TH LIGHTNING STREET", type: "normal" },
+  3: { name: "18TH CONNECTICUT", type: "normal" },
+  4: { name: "19TH CONNECTICUT", type: "normal" },
+  5: { name: "20TH CONNECTICUT", type: "normal" },
+  6: { name: "21ST COLOR DOORS", type: "normal" },
+  7: { name: "22ND COLOR DOORS", type: "normal" },
+  8: { name: "23RD COLOR DOORS", type: "normal" },
+  9: { name: "24TH CONNECTICUT", type: "normal" },
+  // 10 to 84: 25TH JEFFERSON to 100TH JEFFERSON
+  85: { name: "100TH JEFFERSON", type: "normal" },
+  86: { name: "HOSPITAL", type: "hospital", penalty: true },
+  87: { name: "BASE OF MONEY", type: "reward", reward: 50000 },
+  88: { name: "AIRBORNE", type: "teleport", destination: null }, // TBD
+  89: { name: "METH HOUSE", type: "penalty", loseTurn: true, penalty: 5000 },
+  90: { name: "JAIL", type: "jail", turns: 2 },
+  91: { name: "SHELTER", type: "safe" },
+  92: { name: "LUCKY'S", type: "special" },
+  93: { name: "UNION BOSS", type: "special" },
+  94: { name: "MANSTON", type: "special" },
+  95: { name: "HELPO PAD", type: "special" },
+  96: { name: "JARED", type: "special" },
+  97: { name: "GLEN PYM", type: "special" },
+  98: { name: "CEMETERY", type: "cemetery", reset: true },
+  99: { name: "THE GAME", type: "special" },
+  100: { name: "SHELTER", type: "safe" },
+  101: { name: "CHASE 101", type: "win" }
+};
+
+// Card purchase locations
+const CARD_PURCHASE_LOCATIONS = {
+  cryoGeneClinic: null,  // Square # TBD
+  bailBonds: null,       // Square # TBD
+  lawyersOffice: null,   // Square # TBD
+  bittersweetLife: null  // Square # TBD
+};
+
+// Teleport mapping
+const TELEPORTS = {
+  88: null  // AIRBORNE teleports to TBD
 };
 ```
 
