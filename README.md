@@ -1,152 +1,267 @@
 
-
 ---
 
-# 🏝️ Gangsta Island / Chase 101 - Digital Game Platform
+# 🏝️ GANGSTA ISLAND / CHASE 101 - Digital Board Game Platform
 
-> **A custom-built, cross-platform digital board game engine with Discord integration, real-money economy, and mobile app.**
+> **A complete digital adaptation of the official "Game of Chase" tabletop board game with Discord bot, mobile app, and real-money economy.**
 
 ---
 
 ## 📋 Table of Contents
 
 1. [Project Overview](#project-overview)
-2. [Tech Stack](#tech-stack)
-3. [System Architecture](#system-architecture)
-4. [Features (Full Scope)](#features-full-scope)
-5. [Prerequisites](#prerequisites)
-6. [Installation & Setup](#installation--setup)
-7. [Environment Variables](#environment-variables)
-8. [Database Schema](#database-schema)
-9. [API Documentation](#api-documentation)
-10. [Discord Bot Commands](#discord-bot-commands)
-11. [Game Logic](#game-logic)
-12. [Milestone Breakdown](#milestone-breakdown)
-13. [Folder Structure](#folder-structure)
-14. [Deployment](#deployment)
-15. [Testing](#testing)
-16. [Troubleshooting](#troubleshooting)
-17. [Contributing](#contributing)
-18. [License](#license)
+2. [Game Rules Summary](#game-rules-summary)
+3. [Characters & Teams](#characters--teams)
+4. [Tech Stack](#tech-stack)
+5. [System Architecture](#system-architecture)
+6. [Features by Phase](#features-by-phase)
+7. [Prerequisites](#prerequisites)
+8. [Installation & Setup](#installation--setup)
+9. [Environment Variables](#environment-variables)
+10. [Database Schema](#database-schema)
+11. [API Documentation](#api-documentation)
+12. [Discord Bot Commands](#discord-bot-commands)
+13. [Core Game Logic](#core-game-logic)
+14. [Special Squares & Effects](#special-squares--effects)
+15. [Card System](#card-system)
+16. [Money & Banking System](#money--banking-system)
+17. [Milestone Breakdown](#milestone-breakdown)
+18. [Folder Structure](#folder-structure)
+19. [Deployment](#deployment)
+20. [Testing](#testing)
+21. [Troubleshooting](#troubleshooting)
+22. [Quick Start for Developers](#quick-start-for-developers)
 
 ---
 
 ## 🎯 Project Overview
 
-**Gangsta Island / Chase 101** is a digital adaptation of a physical urban-themed board game. The game features:
+**Gangsta Island / Chase 101** is a digital adaptation of the official **"Game of Chase"** tabletop board game. This project transforms the physical board game into a cross-platform digital experience.
 
-- **101 unique squares** (17th Polk, 5th Low End, Meth House, etc.)
-- **Special mechanics**: Teleports, Jail, Hospital, Cemetery, Life Cards
-- **Unique characters**: King Cervus, Meth Man, Officer Friendly, Rev
-- **Multiplayer**: 2-4 players per game
-- **Dual economy**: Play Money (practice) + Real Money (stakes)
+### Official Game Information
+
+| Aspect | Details |
+|--------|---------|
+| **Game Name** | Game of Chase / Gangsta Island |
+| **Publisher** | Bittersweet Publishing |
+| **Max Players** | Up to 14 players |
+| **Age Rating** | 12+ |
+| **Win Condition** | First to **$1,000,000** (One Million Dollars) |
+| **Good Guys Win** | Team collectively reaches **$2,000,000** |
+
+### Game Theme
+> *"The Game of Chase is an action game, a tabletop board game that portrays the real-life robbery, killings, bullies in the inner city, the everyday trials and tribulations of the street."*
 
 ### Platforms Supported
 
 | Platform | Status | Description |
 |----------|--------|-------------|
-| Discord Bot | ✅ MVP | Headless version with `/commands` |
-| Mobile App | 🔄 Phase 2 | React Native iOS/Android |
-| Web Dashboard | 🔄 Phase 3 | Admin panel for management |
+| **Discord Bot** | ✅ Phase 1 (MVP) | Headless version with slash commands |
+| **Mobile App** | 🔄 Phase 2 | React Native (iOS & Android) |
+| **Admin Panel** | 🔄 Phase 3 | Web dashboard for management |
+
+---
+
+## 📖 Game Rules Summary
+
+### Core Concept
+- Players move around the board using **6 dice**
+- Land on squares to earn money, take opponents, or face penalties
+- **3 types of players** with different abilities and win conditions
+- First to reach **$1,000,000** wins (Good Guys need $2,000,000 as a team)
+
+### Turn Order
+```
+1. BAD HUSTLAS (move first - bring financial commerce to streets)
+2. GOOD GUYS (move second - capture BAD HUSTLAS money)
+3. UGLY TAKERS (move last - hunt everyone)
+```
+
+### Movement Rules
+- Only **one direction** (no backward movement)
+- **30-second time limit** per turn
+- **Corners** can be advanced straight or diagonally
+- Once piece is placed, you cannot change position
+
+### Dice System
+
+| Roll | Effect |
+|------|--------|
+| `1-2-3-4-5-6` | **ATMBF** - Awards $1,000 |
+| `1-1-1-2-6-6` (3 craps) | **SNITCH** - Go directly to JAIL |
+| **6 of a kind** | **$5,000,000 LOTTERY** (instant win, except LAMA) |
+
+---
+
+## 👥 Characters & Teams
+
+### Total Characters: 14
+
+### THE GOOD GUYS (Team 1 - Rebuild Community)
+
+| # | Character Name | Starting Location |
+|---|----------------|-------------------|
+| 1 | **KING CERVUS** | Drug Free Zone |
+| 2 | **REVEREND** | Church |
+| 3 | **OFFICER FRIENDLY** | Breakfast Shop |
+| 4 | **COUNSELOR MOM** | Bus Stop |
+
+**Team Win Condition:** Collectively raise **$2,000,000** by taking illegally earned money from BAD HUSTLAS to rebuild the community.
+
+**Abilities:**
+- Cannot HUSTLE
+- Work as a team
+- Take BAD HUSTLAS money (except ATM funds)
+
+---
+
+### THE BAD HUSTLAS (Team 2 - Move First)
+
+| # | Character Name | Starting Location |
+|---|----------------|-------------------|
+| 1 | **COKALINA** | Crack House |
+| 2 | **MR. H** | Dog Pound |
+| 3 | **METH MAN** | Meth House |
+| 4 | **RASTA** | Smoke House |
+| 5 | **PROFESSOR X** | Scripts |
+
+**Team Win Condition:** Hustle up **$1,000,000** and retire.
+
+**Abilities:**
+- Can HUSTLE (special dice rolling mechanic)
+- Leave house poor, only selling candy
+- Dream of retiring from the game
+
+---
+
+### THE UGLY TAKERS (Team 3 - Move Last)
+
+| # | Character Name | Starting Location | Special Ability |
+|---|----------------|-------------------|-----------------|
+| 1 | **5-FINGERS** | Shelter | Robs/stabs → Hospital |
+| 2 | **BULLY D. WILLIAMS** | Arcade | Beats up/robs → Hospital |
+| 3 | **MRS. SEXY** | Lap Dance Club | Infects with STI → Hospital |
+| 4 | **CROOKED COP** | Fed Sub-Holding | Arrests all (except LAMA) → Jail |
+| 5 | **LAMA / LAMAX** | Unda-Boss Corner | **BOARD KILLER** → Cemetery |
+
+**Team Goal:** Eliminate all other players and cause mayhem.
+
+**Important:** Crooked Cop and LAMA **cannot be defended against** in a Struggle.
 
 ---
 
 ## 🛠 Tech Stack
 
 ### Backend
-| Technology | Purpose |
-|------------|---------|
-| **Node.js (v20+)** | Runtime environment |
-| **Express.js** | REST API framework |
-| **Socket.io** | Real-time multiplayer sync |
-| **MongoDB** | Main database |
-| **Redis** | Session management & caching |
-| **JWT** | Authentication |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Node.js | v20+ | Runtime environment |
+| Express.js | v4.18+ | REST API framework |
+| Socket.io | v4.5+ | Real-time multiplayer sync |
+| MongoDB | v6+ | Primary database |
+| Redis | v7+ | Session management & caching |
+| JWT | v9+ | Authentication |
 
 ### Discord Bot
-| Technology | Purpose |
-|------------|---------|
-| **Discord.js (v14+)** | Discord API wrapper |
-| **Canvas** | Dynamic board image generation |
-| **Command Handler** | Slash commands (`/roll`, `/board`) |
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| Discord.js | v14+ | Discord API wrapper |
+| Canvas | v2.11+ | Dynamic board image generation |
+| Axios | v1.4+ | HTTP requests to backend |
 
-### Frontend (Mobile App)
-| Technology | Purpose |
-|------------|---------|
-| **React Native** | Cross-platform mobile |
-| **Redux Toolkit** | State management |
-| **React Navigation** | Screen routing |
+### Frontend (Mobile App - Phase 2)
+| Technology | Version | Purpose |
+|------------|---------|---------|
+| React Native | v0.72+ | Cross-platform mobile |
+| Redux Toolkit | v1.9+ | State management |
+| React Navigation | v6+ | Screen routing |
 
 ### Payments & Infrastructure
 | Technology | Purpose |
 |------------|---------|
-| **Stripe** | Fiat payments (credit card, PayPal) |
-| **AWS S3** | Image/assets storage |
-| **AWS EC2 / Render** | Hosting |
-| **MongoDB Atlas** | Cloud database |
+| Stripe | Fiat payments (credit card, PayPal) |
+| AWS S3 | Image/assets storage |
+| Render / Railway | Hosting |
+| MongoDB Atlas | Cloud database |
 
 ---
 
 ## 🏗 System Architecture
 
 ```
-┌─────────────────────────────────────────────────────────────┐
-│                         CLIENTS                              │
-├──────────────┬──────────────┬──────────────┬────────────────┤
-│ Discord Bot  │  Mobile App  │  Web Admin   │    API Users   │
-│ (Discord.js) │ (React Native)│ (React)      │    (REST)      │
-└──────┬───────┴──────┬───────┴──────┬───────┴───────┬────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                           CLIENTS                                │
+├──────────────┬──────────────┬──────────────┬───────────────────┤
+│ Discord Bot  │  Mobile App  │  Web Admin   │     API Users     │
+│ (Discord.js) │(React Native)│   (React)    │      (REST)       │
+└──────┬───────┴──────┬───────┴──────┬───────┴───────┬───────────┘
        │              │              │               │
        ▼              ▼              ▼               ▼
-┌──────────────────────────────────────────────────────────────┐
-│                      API GATEWAY (Express)                    │
-│                    Port: 5000 (HTTP/WebSocket)                │
-└──────────────────────────────┬───────────────────────────────┘
+┌─────────────────────────────────────────────────────────────────┐
+│                      API GATEWAY (Express)                       │
+│                    Port: 5000 (HTTP/WebSocket)                   │
+└──────────────────────────────┬──────────────────────────────────┘
                                │
        ┌───────────────────────┼───────────────────────┐
        │                       │                       │
        ▼                       ▼                       ▼
 ┌─────────────┐     ┌─────────────────┐     ┌─────────────┐
-│   MongoDB   │     │      Redis      │     │    Stripe   │
+│   MongoDB   │     │      Redis      │     │   Stripe    │
 │  (Primary)  │     │   (Sessions)    │     │ (Payments)  │
 └─────────────┘     └─────────────────┘     └─────────────┘
 ```
 
-### Data Flow (Game Move)
+### Data Flow (Player Move Example)
+
 ```
 1. User types /roll in Discord
 2. Bot sends API request → Backend
 3. Backend calculates new position
-4. Checks for teleport/jail/hospital
-5. Updates database
-6. Sends WebSocket event to mobile app (if open)
-7. Bot generates new board image
-8. User sees result
+4. Checks for special squares (Jail/Hospital/Cemetery)
+5. Checks for TAKES (landing on other players)
+6. Updates database with new positions and money
+7. Sends WebSocket event to mobile app (if open)
+8. Bot generates new board image via Canvas
+9. User sees result in Discord
 ```
 
 ---
 
-## ✨ Features (Full Scope)
+## ✨ Features by Phase
 
 ### Phase 1 - MVP (Discord Bot + Core Logic)
+**Timeline: 4-5 weeks | Price: $3,500**
+
+- [x] Discord bot with slash commands
 - [x] User registration (Discord OAuth)
-- [x] Create/join game lobbies (2-4 players)
-- [x] Dice roll mechanism (`/roll`)
-- [x] Movement on 101-square board
-- [x] Teleport logic (square → square mapping)
-- [x] Jail/Hospital/Cemetery mechanics
-- [x] Life Cards (basic draw & use)
+- [x] Create/join game lobbies (2-14 players)
+- [x] 6 dice roll mechanism
+- [x] Movement on board
+- [x] 3 team system (Good Guys, Bad Hustlas, Ugly Takers)
+- [x] Turn order management
+- [x] HUSTLE system for BAD HUSTLAS
+- [x] TAKE system (landing on opponents)
+- [x] STRUGGLE system (defense against TAKERS)
+- [x] STACKING bonuses
+- [x] Special squares (Jail, Hospital, Cemetery)
+- [x] Basic Life Cards
 - [x] Play Money system (practice mode)
 - [x] Dynamic board image generation
-- [x] Turn-based multiplayer
+- [x] Win condition checking
 
 ### Phase 2 - Full Production
+**Timeline: 10-12 weeks | Price: $5,500 (total including Phase 1)**
+
 - [ ] Mobile app (React Native)
 - [ ] Real-money wallet (Stripe)
 - [ ] Withdrawals & deposits
 - [ ] Admin dashboard
 - [ ] Tournament system
-- [ ] In-game purchases (Life Card packs)
+- [ ] Bond Out Cards purchase
+- [ ] Beneficiary Cards purchase
+- [ ] ATM system with BANK RUN
+- [ ] ATMBF (Armored Truck Money Bag Fall)
+- [ ] MY MONEY call-out system
 - [ ] Push notifications
 - [ ] Friend invites
 
@@ -157,12 +272,13 @@
 - [ ] Affiliate/referral system
 - [ ] Leaderboards
 - [ ] Replay system
+- [ ] Custom dice skins
 
 ---
 
 ## 📦 Prerequisites
 
-Before you begin, ensure you have:
+### Software Requirements
 
 | Requirement | Version | Check Command |
 |-------------|---------|---------------|
@@ -173,10 +289,13 @@ Before you begin, ensure you have:
 | Git | latest | `git --version` |
 
 ### Required Accounts
-- [Discord Developer Portal](https://discord.com/developers/applications) - Bot token
-- [MongoDB Atlas](https://www.mongodb.com/atlas) - Cloud database (or local)
-- [Stripe](https://stripe.com) - Payment processing (Phase 2)
-- [AWS](https://aws.amazon.com) - S3 storage (optional)
+
+| Service | Purpose | Cost |
+|---------|---------|------|
+| [Discord Developer Portal](https://discord.com/developers/applications) | Bot token | Free |
+| [MongoDB Atlas](https://www.mongodb.com/atlas) | Cloud database | Free tier available |
+| [Stripe](https://stripe.com) | Payment processing (Phase 2) | Free to start |
+| [Render](https://render.com) | Hosting (optional) | Free tier available |
 
 ---
 
@@ -218,7 +337,7 @@ mongod --dbpath /data/db
 # Start Redis
 redis-server
 
-# OR use Docker
+# OR use Docker (recommended)
 docker-compose up -d
 ```
 
@@ -248,7 +367,7 @@ npm run start
 
 ### 8. Invite Bot to Your Server
 
-Use this URL pattern:
+Use this URL pattern (replace `YOUR_BOT_ID`):
 ```
 https://discord.com/api/oauth2/authorize?client_id=YOUR_BOT_ID&permissions=8&scope=bot%20applications.commands
 ```
@@ -305,14 +424,6 @@ DISCORD_CLIENT_ID=123456789012345678
 API_BASE_URL=http://localhost:5000/api
 ```
 
-### Mobile App `.env` (Phase 2)
-
-```env
-API_URL=http://localhost:5000/api
-WS_URL=http://localhost:5000
-STRIPE_PUBLIC_KEY=pk_live_xxxxxxxxxxxxx
-```
-
 ---
 
 ## 🗄 Database Schema
@@ -326,19 +437,24 @@ STRIPE_PUBLIC_KEY=pk_live_xxxxxxxxxxxxx
   username: "player1",
   email: "player1@example.com",
   avatar: "https://cdn.discordapp.com/...",
+  team: "good_guys",        // good_guys, bad_hustlas, ugly_takers
+  character: "KING CERVUS",  // Character name from list
   wallets: {
-    playMoney: 10000,      // Practice currency
-    realMoney: 0.00        // Real USD balance
+    playMoney: 10000,        // Practice currency
+    realMoney: 0.00          // Real USD balance
   },
+  lifeCards: 3,               // Current life cards count (max 3)
   stats: {
     gamesPlayed: 0,
     gamesWon: 0,
     totalEarnings: 0,
-    totalWagered: 0
+    totalWagered: 0,
+    moneyHustled: 0,
+    playersTaken: 0
   },
-  currentGame: ObjectId,   // Active game ID
+  currentGame: ObjectId,     // Active game ID
   isBanned: false,
-  role: "user",            // user, admin, vip
+  role: "user",              // user, admin, vip
   createdAt: ISODate,
   lastActive: ISODate
 }
@@ -350,59 +466,78 @@ STRIPE_PUBLIC_KEY=pk_live_xxxxxxxxxxxxx
 {
   _id: ObjectId,
   gameCode: "ABCD1234",
-  status: "waiting",       // waiting, active, completed, abandoned
+  status: "waiting",         // waiting, active, completed, abandoned
+  maxPlayers: 14,
+  
   players: [
     {
       userId: ObjectId,
+      character: "METH MAN",
+      team: "bad_hustlas",
       position: 0,
-      lifeCards: ["card1", "card2"],
+      money: 0,
+      atmFunds: 0,
+      lifeCards: 3,
+      bondOutCards: 0,        // Max 3
+      beneficiaryCards: 0,    // Max 3
       isInJail: false,
       jailTurnsLeft: 0,
       isInHospital: false,
       hospitalTurnsLeft: 0,
-      order: 0             // Turn order (0-3)
+      isInCemetery: false,
+      order: 0                // Turn order
     }
   ],
-  currentTurn: 0,          // Index of player whose turn it is
-  board: {
-    teleports: {...},
-    specialSquares: {...}
-  },
-  potAmount: 0,            // Real money pot
-  entryFee: 0,             // Entry fee per player
+  
+  currentTurn: 0,             // Index of player whose turn it is
+  turnOrder: ["bad_hustlas", "good_guys", "ugly_takers"],
+  
+  // Game state
+  at mbf: 0,                  // Armored Truck Money Bag Fall total
+  lottery: 5000000,           // $5,000,000 lottery
+  snitchActive: false,
+  
+  potAmount: 0,               // Real money pot
+  entryFee: 0,                // Entry fee per player
   isRealMoney: false,
+  
   winner: ObjectId,
   createdAt: ISODate,
   updatedAt: ISODate
 }
 ```
 
-### LifeCards Collection
+### Cards Collection
 
 ```javascript
+// Life Cards
 {
   _id: ObjectId,
   name: "Get Out of Jail Free",
+  type: "jail_card",
   description: "Instantly escape jail",
   effect: "escape_jail",
-  rarity: "common",        // common, rare, epic, legendary
-  imageUrl: "/cards/jail_free.png"
+  rarity: "common"
 }
-```
 
-### Transactions Collection (Phase 2)
-
-```javascript
+// Bond Out Card
 {
   _id: ObjectId,
-  userId: ObjectId,
-  type: "deposit",         // deposit, withdrawal, bet, win, rake
-  amount: 50.00,
-  currency: "usd",
-  stripePaymentIntentId: "pi_xxxxxxxxx",
-  status: "completed",     // pending, completed, failed
-  gameId: ObjectId,
-  createdAt: ISODate
+  name: "Bond Out Card",
+  type: "bond_out",
+  price: 10000,
+  maxOwn: 3,
+  effect: "Protects ATM funds in jail"
+}
+
+// Beneficiary Card
+{
+  _id: ObjectId,
+  name: "Beneficiary Card",
+  type: "beneficiary",
+  price: 50000,
+  maxOwn: 3,
+  effect: "Protects ATM funds in cemetery, inherit funds"
 }
 ```
 
@@ -449,45 +584,12 @@ Authorization: Bearer <jwt_token>
 | POST | `/games/join/:code` | Join game by code |
 | GET | `/games/:id` | Get game details |
 | POST | `/games/:id/roll` | Roll dice and move |
+| POST | `/games/:id/hustle` | BAD HUSTLAS: Get your hustle on |
+| POST | `/games/:id/struggle` | Defend against TAKER |
 | POST | `/games/:id/use-card` | Use a Life Card |
+| POST | `/games/:id/bank-run` | Call BANK RUN to deposit |
+| POST | `/games/:id/my-money` | Call MY MONEY on violation |
 | POST | `/games/:id/leave` | Leave game |
-
-#### Wallets
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/wallets/balance` | Get both wallet balances |
-| POST | `/wallets/play-money/add` | Add play money (admin only) |
-
-#### Admin
-
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| GET | `/admin/users` | List all users |
-| PUT | `/admin/users/:id/ban` | Ban user |
-| PUT | `/admin/users/:id/role` | Change user role |
-| GET | `/admin/games` | List all games |
-| GET | `/admin/stats` | Platform statistics |
-
-### Example API Call
-
-```javascript
-// Create a game
-fetch('http://localhost:5000/api/games/create', {
-  method: 'POST',
-  headers: {
-    'Authorization': 'Bearer YOUR_JWT_TOKEN',
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    entryFee: 10,
-    isRealMoney: true,
-    maxPlayers: 4
-  })
-})
-.then(res => res.json())
-.then(data => console.log(data));
-```
 
 ---
 
@@ -502,9 +604,13 @@ fetch('http://localhost:5000/api/games/create', {
 | `/create` | Create new game lobby | `/create` |
 | `/join [code]` | Join game by code | `/join ABCD1234` |
 | `/roll` | Roll dice (in active game) | `/roll` |
+| `/hustle` | BAD HUSTLAS: Hustle after landing on entry | `/hustle` |
+| `/struggle` | Defend against TAKER | `/struggle` |
 | `/board` | Show current board | `/board` |
-| `/cards` | Show your Life Cards | `/cards` |
+| `/cards` | Show your cards | `/cards` |
 | `/use-card [card]` | Use a Life Card | `/use-card "Get Out of Jail"` |
+| `/bank-run` | Call BANK RUN to deposit money | `/bank-run` |
+| `/my-money` | Call MY MONEY on violation | `/my-money` |
 | `/leave` | Leave current game | `/leave` |
 | `/leaderboard` | Show top players | `/leaderboard` |
 | `/help` | Show all commands | `/help` |
@@ -519,124 +625,544 @@ fetch('http://localhost:5000/api/games/create', {
 | `/stats` | Show platform stats |
 | `/reset-game [code]` | Force reset game |
 
-### Bot Response Example
+### Bot Response Examples
 
-When user types `/roll`:
+#### When user types `/roll`:
 
 ```
-🎲 **Player1 rolled a 6!**
+🎲 **Player1 (METH MAN - BAD HUSTLA) rolled a 7!**
 
-📍 Moved from Square #42 (Low End) to Square #48 (Meth House)
+📍 Moved from Square #42 to Square #49
 
-⚠️ **Special Square!** You landed on Meth House
-- Effect: Lose 1 turn
-- Current balance: 2,500 Play Money
+⚠️ **LANDED ON:** METH HOUSE
+- Effect: Penalty square
+- Lose 1 turn
+- Pay $5,000 to community
 
-📊 **Current Board:**
-[1] [2] [3] ... [42] 👤 ... [48] 🏚️ ... [101]
+💰 **Current Money:** $12,500
+💳 **Life Cards:** 3
+🏦 **ATM Funds:** $50,000
 
-🃏 **Next turn: Player2**
+📊 **Next turn: Player2 (OFFICER FRIENDLY - GOOD GUY)**
+```
+
+#### When BAD HUSTLA uses `/hustle`:
+
+```
+💰 **METH MAN is GETTING THEIR HUSTLE ON!**
+
+🎲 Rolled: 6, 6, 6, 3, 2, 1
+✅ Three 6's! Score: $6,000
+
+📊 Continue hustling? (yes/no)
+Risk: Lose it all if next roll fails!
+
+💰 **Current Hustle Pot:** $6,000
+```
+
+#### When TAKER takes a player:
+
+```
+⚠️ **TAKE!** LAMA landed on KING CERVUS!
+
+💀 LAMA (BOARD KILLER) attacks!
+- KING CERVUS loses 1 LIFE CARD
+- Sent to CEMETERY
+- All money lost (including ATM)
+
+🛡️ Can't defend against LAMA!
+
+💀 **KING CERVUS has 2 LIFE CARDS remaining**
 ```
 
 ---
 
-## 🎮 Game Logic
+## 🎮 Core Game Logic
 
-### Board Configuration (`board.config.js`)
-
-```javascript
-// 101 Squares definition
-const squares = [
-  { id: 0, name: "Start", type: "start" },
-  { id: 1, name: "17th Polk", type: "normal" },
-  { id: 2, name: "5th Low End", type: "normal" },
-  // ... up to 101
-  { id: 48, name: "Meth House", type: "penalty", effect: "lose_turn" },
-  { id: 52, name: "Teleport", type: "teleport", destination: 67 },
-  { id: 67, name: "Teleport Destination", type: "normal" },
-  { id: 75, name: "Jail", type: "jail", turnsToStay: 2 },
-  { id: 82, name: "Hospital", type: "hospital", turnsToStay: 1 },
-  { id: 99, name: "Cemetery", type: "cemetery", effect: "reset_to_start" }
-];
-
-// Teleport mapping
-const teleports = {
-  52: 67,   // Square 52 → 67
-  33: 89,   // Square 33 → 89
-  14: 45,   // Square 14 → 45
-  // Add all teleport pairs
-};
-```
-
-### Game Flow
+### Dice System Implementation
 
 ```javascript
-// Simplified game engine logic
-class GameEngine {
-  
-  rollDice() {
-    return Math.floor(Math.random() * 6) + 1;
+// Dice roll logic
+class DiceSystem {
+  static rollDice(count = 6) {
+    const rolls = [];
+    for (let i = 0; i < count; i++) {
+      rolls.push(Math.floor(Math.random() * 6) + 1);
+    }
+    return rolls;
   }
   
-  movePlayer(currentPos, diceRoll) {
-    let newPos = currentPos + diceRoll;
+  static checkSpecialRolls(rolls) {
+    const sorted = [...rolls].sort();
     
-    // Check win condition
-    if (newPos >= 101) {
-      return { position: 101, won: true };
+    // Check for 1-2-3-4-5-6 (ATMBF)
+    if (sorted.join(',') === '1,2,3,4,5,6') {
+      return { type: 'ATMBF', reward: 1000 };
     }
     
-    // Check teleport
-    if (teleports[newPos]) {
-      newPos = teleports[newPos];
+    // Check for 1,1,1,2,6,6 (SNITCH - 3 craps)
+    const counts = {};
+    rolls.forEach(r => counts[r] = (counts[r] || 0) + 1);
+    if (counts[1] === 3 && counts[2] === 1 && counts[6] === 2) {
+      return { type: 'SNITCH', penalty: 'JAIL' };
     }
     
-    // Check special squares
-    const square = squares[newPos];
+    // Check for 6 of a kind (LOTTERY)
+    if (rolls.every(r => r === rolls[0])) {
+      return { type: 'LOTTERY', reward: 5000000 };
+    }
+    
+    return null;
+  }
+  
+  static checkHustleScore(rolls) {
+    const counts = {};
+    rolls.forEach(r => counts[r] = (counts[r] || 0) + 1);
+    
+    // Check for three of a kind
+    for (let face = 1; face <= 6; face++) {
+      if (counts[face] >= 3) {
+        let multiplier = 1000;
+        if (counts[face] === 4) multiplier = 10000;
+        if (counts[face] === 5) multiplier = 100000;
+        if (counts[face] === 6) multiplier = 1000000;
+        
+        return { score: face * multiplier, threeOfAKind: true };
+      }
+    }
+    
+    // Check for 3 doubles
+    const doubles = Object.values(counts).filter(c => c === 2).length;
+    if (doubles === 3) {
+      return { score: 50000, threeDoubles: true };
+    }
+    
+    return { score: 0, threeOfAKind: false };
+  }
+}
+```
+
+### HUSTLE System (BAD HUSTLAS only)
+
+```javascript
+class HustleSystem {
+  constructor(game, playerId) {
+    this.game = game;
+    this.player = game.players.find(p => p.userId === playerId);
+    this.currentPot = 0;
+  }
+  
+  canHustle() {
+    // Must be BAD HUSTLA and landed on entry spot
+    return this.player.team === 'bad_hustlas' && this.isOnEntrySpot();
+  }
+  
+  isOnEntrySpot() {
+    const entrySpots = [/* Entry spot numbers */];
+    return entrySpots.includes(this.player.position);
+  }
+  
+  async hustle(rolls) {
+    const result = DiceSystem.checkHustleScore(rolls);
+    
+    if (result.score === 0) {
+      // Failed - lose everything
+      this.currentPot = 0;
+      return { success: false, message: "You lost everything!" };
+    }
+    
+    // Check for double/triple spots
+    let multiplier = 1;
+    if (this.isOnLakefrontCondos()) multiplier = 2;
+    if (this.isOnDaCarter()) multiplier = 3;
+    
+    const earned = result.score * multiplier;
+    this.currentPot += earned;
+    
+    return {
+      success: true,
+      earned: earned,
+      currentPot: this.currentPot,
+      canContinue: true,
+      message: `You earned $${earned.toLocaleString()}! Pot: $${this.currentPot.toLocaleString()}`
+    };
+  }
+  
+  takeMoney() {
+    this.player.money += this.currentPot;
+    return this.currentPot;
+  }
+}
+```
+
+### TAKE System (Landing on Opponents)
+
+```javascript
+class TakeSystem {
+  constructor(game, attackerId, defenderId) {
+    this.game = game;
+    this.attacker = game.players.find(p => p.userId === attackerId);
+    this.defender = game.players.find(p => p.userId === defenderId);
+  }
+  
+  execute() {
+    const attackerTeam = this.attacker.team;
+    const defenderTeam = this.defender.team;
+    
+    // GOOD GUY takes BAD HUSTLA
+    if (attackerTeam === 'good_guys' && defenderTeam === 'bad_hustlas') {
+      const takenMoney = this.defender.money;
+      this.attacker.money += takenMoney;
+      this.defender.money = 0;
+      return { 
+        taken: takenMoney, 
+        message: `${this.attacker.character} took $${takenMoney} from ${this.defender.character}!`
+      };
+    }
+    
+    // GOOD GUY lands on BAD GUY or vulnerable TAKER
+    if (attackerTeam === 'good_guys' && 
+        (defenderTeam === 'bad_hustlas' || defenderTeam === 'ugly_takers')) {
+      const bonus = 50000;
+      this.attacker.money += bonus;
+      return { bonus: bonus, message: `${this.attacker.character} got $50,000 bonus!` };
+    }
+    
+    // UGLY TAKER takes any player
+    if (attackerTeam === 'ugly_takers') {
+      return this.takerTake();
+    }
+    
+    return null;
+  }
+  
+  takerTake() {
+    const isInvincible = ['CROOKED COP', 'LAMA'].includes(this.attacker.character);
+    
+    // Take LIFE CARD
+    this.defender.lifeCards -= 1;
+    
+    // Take money (except ATM if protected)
+    let takenMoney = this.defender.money;
+    if (this.defender.bondOutCards > 0 && this.attacker.character === 'CROOKED COP') {
+      takenMoney = 0; // Bond Out Card protects
+    }
+    if (this.defender.beneficiaryCards > 0 && this.attacker.character === 'LAMA') {
+      takenMoney = 0; // Beneficiary Card protects
+    }
+    
+    this.attacker.money += takenMoney;
+    this.defender.money = 0;
+    
+    // Send to appropriate place
+    let destination = '';
+    if (this.attacker.character === 'CROOKED COP') destination = 'JAIL';
+    else if (this.attacker.character === 'LAMA') destination = 'CEMETERY';
+    else destination = 'HOSPITAL';
+    
+    return {
+      lifeCardLost: true,
+      moneyTaken: takenMoney,
+      destination: destination,
+      canStruggle: !isInvincible,
+      message: `${this.attacker.character} took ${this.defender.character}! Sent to ${destination}.`
+    };
+  }
+}
+```
+
+### STRUGGLE System (Defense)
+
+```javascript
+class StruggleSystem {
+  constructor(game, defenderId, takerId) {
+    this.game = game;
+    this.defender = game.players.find(p => p.userId === defenderId);
+    this.taker = game.players.find(p => p.userId === takerId);
+  }
+  
+  canStruggle() {
+    // Cannot struggle against Crooked Cop or LAMA
+    const invincibleTakers = ['CROOKED COP', 'LAMA'];
+    return !invincibleTakers.includes(this.taker.character);
+  }
+  
+  async struggle(defenseRolls) {
+    // Must roll 3 of a kind to win struggle
+    const counts = {};
+    defenseRolls.forEach(r => counts[r] = (counts[r] || 0) + 1);
+    
+    let isThreeOfAKind = false;
+    for (let face = 1; face <= 6; face++) {
+      if (counts[face] >= 3) {
+        isThreeOfAKind = true;
+        break;
+      }
+    }
+    
+    if (!isThreeOfAKind) {
+      // Lose struggle - lose extra LIFE CARD
+      this.defender.lifeCards -= 1;
+      return { 
+        success: false, 
+        message: `Struggle failed! ${this.defender.character} lost an extra LIFE CARD!`,
+        lifeCardsRemaining: this.defender.lifeCards
+      };
+    }
+    
+    // Win struggle - regain money and LIFE CARD
+    // Then roll 2 dice to escape or send taker to cemetery
+    const escapeRoll = DiceSystem.rollDice(2);
+    const isPair = escapeRoll[0] === escapeRoll[1];
+    
+    if (isPair) {
+      // Taker goes to cemetery
+      this.taker.position = this.getCemeterySquare();
+      return {
+        success: true,
+        takerGoesToCemetery: true,
+        message: `Struggle won! ${this.taker.character} goes to CEMETERY!`
+      };
+    }
+    
+    return {
+      success: true,
+      escaped: true,
+      message: `Struggle won! ${this.defender.character} escaped with ${escapeRoll[0]}, ${escapeRoll[1]}!`
+    };
+  }
+}
+```
+
+### STACKING Bonuses
+
+```javascript
+class StackingSystem {
+  static calculateBonus(playersOnSquare, newPlayerIndex) {
+    // $100,000 per extra player already on square
+    const extraPlayers = playersOnSquare.length;
+    return extraPlayers * 100000;
+  }
+  
+  static handleUglyTakerOnStack(taker, stackedPlayers) {
+    // UGLY TAKER takes EVERY player on stack
+    const results = [];
+    for (const player of stackedPlayers) {
+      results.push({
+        player: player.character,
+        lifeCardLost: true,
+        moneyTaken: player.money,
+        destination: this.getDestination(taker)
+      });
+    }
+    
+    // Taker gets $100,000 per player
+    const bonus = stackedPlayers.length * 100000;
+    taker.money += bonus;
+    
+    return {
+      playersTaken: stackedPlayers.length,
+      bonusEarned: bonus,
+      results: results
+    };
+  }
+}
+```
+
+---
+
+## 🏥 Special Squares & Effects
+
+### Square Types and Effects
+
+| Square | Effect | Implementation |
+|--------|--------|----------------|
+| **JAIL** | Player misses turns, ATM funds released | `isInJail: true, jailTurnsLeft: 2` |
+| **HOSPITAL** | After losing LIFE CARD to vulnerable TAKER | `isInHospital: true, hospitalTurnsLeft: 1` |
+| **CEMETERY** | Lose LIFE CARD + ALL money + ATM funds | `isInCemetery: true, money: 0, atmFunds: 0` |
+| **LAKEFRONT CONDOS** | Double hustle money | `hustleMultiplier: 2` |
+| **DA CARTER** | Triple hustle money | `hustleMultiplier: 3` |
+| **BAIL BONDS** | Purchase Bond Out Cards | `canPurchase: 'bond_out'` |
+| **LAWYER'S OFFICE** | Purchase Bond Out Cards | `canPurchase: 'bond_out'` |
+| **BITTERSWEET LIFE** | Purchase Beneficiary Cards | `canPurchase: 'beneficiary'` |
+| **ENTRY SPOTS** | Trigger HUSTLE for BAD HUSTLAS | `isEntryPoint: true` |
+
+### Special Square Implementation
+
+```javascript
+class SpecialSquareHandler {
+  static handleLanding(player, squareId, game) {
+    const square = squares[squareId];
+    
     switch(square.type) {
       case 'jail':
-        return { position: newPos, jail: true, turns: 2 };
+        player.isInJail = true;
+        player.jailTurnsLeft = 2;
+        // ATM funds released
+        player.money += player.atmFunds;
+        player.atmFunds = 0;
+        return { message: "You're in JAIL! Roll to get out." };
+        
       case 'hospital':
-        return { position: newPos, hospital: true, turns: 1 };
-      case 'penalty':
-        return { position: newPos, loseTurn: true };
-      default:
-        return { position: newPos };
+        player.isInHospital = true;
+        player.hospitalTurnsLeft = 1;
+        return { message: "You're in HOSPITAL! Pull a Hospital Card." };
+        
+      case 'cemetery':
+        player.lifeCards -= 1;
+        player.money = 0;
+        if (!player.beneficiaryCards > 0) {
+          player.atmFunds = 0;
+        }
+        return { message: "You're in CEMETERY! Lost a LIFE CARD and all money." };
+        
+      case 'entry':
+        if (player.team === 'bad_hustlas') {
+          return { canHustle: true, message: "Entry spot! Get your HUSTLE ON!" };
+        }
+        break;
     }
-  }
-  
-  // Life Card effects
-  useLifeCard(cardType, player) {
-    switch(cardType) {
-      case 'escape_jail':
-        player.isInJail = false;
-        return "You escaped jail!";
-      case 'extra_turn':
-        return "You get an extra turn!";
-      case 'teleport_anywhere':
-        player.position = 95;
-        return "Teleported to square 95!";
-      // Add more card effects
-    }
+    
+    return null;
   }
 }
 ```
 
-### House Rake Calculation
+---
+
+## 🃏 Card System
+
+### Card Types Summary
+
+| Card Type | Price | Max Own | Where to Buy | Effect |
+|-----------|-------|---------|--------------|--------|
+| **Life Card** | Starting: 3 | 3 | Cryo Gene Clinic ($250k) | Extra life |
+| **Bond Out Card** | $10,000 | 3 | Bail Bonds / Lawyer's Office | Protects ATM in jail |
+| **Beneficiary Card** | $50,000 | 3 | Bittersweet Life | Protects ATM in cemetery |
+| **Jail Card** | N/A | N/A | Pulled in jail | Various jail effects |
+| **Hospital Card** | N/A | N/A | Pulled in hospital | Various hospital effects |
+| **Cemetery Card** | N/A | N/A | Pulled in cemetery | Various cemetery effects |
+
+### Card Implementation
 
 ```javascript
-// For real-money games
-function calculatePayout(potAmount, houseRakePercentage = 7.5) {
-  const houseCut = potAmount * (houseRakePercentage / 100);
-  const winnerPayout = potAmount - houseCut;
-  
-  return {
-    totalPot: potAmount,
-    houseRake: houseCut,
-    winnerGets: winnerPayout
+class CardSystem {
+  static cardEffects = {
+    'Get Out of Jail Free': {
+      type: 'jail_card',
+      effect: (player) => {
+        player.isInJail = false;
+        return "Escaped jail!";
+      }
+    },
+    
+    'Bond Out Card': {
+      type: 'bond_out',
+      price: 10000,
+      maxOwn: 3,
+      effect: (player) => {
+        // Protects ATM funds in jail
+        return "ATM funds protected in jail!";
+      }
+    },
+    
+    'Beneficiary Card': {
+      type: 'beneficiary',
+      price: 50000,
+      maxOwn: 3,
+      effect: (player) => {
+        // Protects ATM funds in cemetery
+        return "ATM funds protected in cemetery!";
+      }
+    }
   };
+  
+  static purchaseCard(player, cardType, game) {
+    const card = this.cardEffects[cardType];
+    if (!card) return { success: false, message: "Card not found" };
+    
+    if (player[`${cardType.toLowerCase().replace(/ /g, '_')}s`] >= card.maxOwn) {
+      return { success: false, message: `Maximum ${card.maxOwn} ${cardType}s owned` };
+    }
+    
+    if (player.money < card.price) {
+      return { success: false, message: `Need $${card.price.toLocaleString()}` };
+    }
+    
+    player.money -= card.price;
+    player[`${cardType.toLowerCase().replace(/ /g, '_')}s`]++;
+    
+    return { success: true, message: `Purchased ${cardType}!` };
+  }
 }
-// Example: $100 pot → $7.50 house → $92.50 to winner
+```
+
+---
+
+## 💰 Money & Banking System
+
+### ATM System
+
+```javascript
+class ATMSystem {
+  static bankRun(player, amount, game) {
+    if (amount > player.money) {
+      return { success: false, message: "Insufficient funds" };
+    }
+    
+    // Call BANK RUN alerts other players
+    game.bankRunAlert = true;
+    
+    player.money -= amount;
+    player.atmFunds += amount;
+    
+    return {
+      success: true,
+      message: `BANK RUN! Deposited $${amount.toLocaleString()} to ATM. Funds are now SAFE!`,
+      atmFunds: player.atmFunds
+    };
+  }
+  
+  static myMoney(caller, violator, game) {
+    // Caller gets all of violator's money (except ATM)
+    const takenMoney = violator.money;
+    caller.money += takenMoney;
+    violator.money = 0;
+    
+    // Escort to jail
+    violator.isInJail = true;
+    violator.jailTurnsLeft = 2;
+    
+    return {
+      success: true,
+      message: `${caller.character} called MY MONEY! Took $${takenMoney.toLocaleString()} and sent ${violator.character} to JAIL!`
+    };
+  }
+}
+```
+
+### ATMBF (Armored Truck Money Bag Fall)
+
+```javascript
+class ATMBFSystem {
+  constructor() {
+    this.total = 0;
+  }
+  
+  addToPot(amount) {
+    this.total += amount;
+  }
+  
+  awardToPlayer(player) {
+    const awarded = this.total;
+    player.money += awarded;
+    this.total = 0;
+    return {
+      awarded: awarded,
+      message: `ATMBF! ${player.character} won $${awarded.toLocaleString()}!`
+    };
+  }
+}
 ```
 
 ---
@@ -645,16 +1171,17 @@ function calculatePayout(potAmount, houseRakePercentage = 7.5) {
 
 | Milestone | Deliverables | Timeline | Payment |
 |-----------|--------------|----------|---------|
-| **M1** | Discord bot + core board logic + play money + multiplayer (2-4 players) | 4-5 weeks | $1,000 |
-| **M2** | Currency system + backend + real-money wallet (Stripe) + database | 2-3 weeks | $1,500 |
-| **M3** | Mobile app (React Native) + UI + board sync with Discord | 3-4 weeks | $1,500 |
-| **M4** | Admin panel + withdrawals + tournaments + final polish | 2-3 weeks | $1,500 |
+| **M1** | Discord bot + all core game logic (14 characters, 3 teams, HUSTLE, TAKE, STRUGGLE, STACKING, special squares, basic Life Cards, Play Money) | 4-5 weeks | $1,000 |
+| **M2** | Currency system + backend + real-money wallet (Stripe) + database + ATM/BANK RUN/MY MONEY system | 2-3 weeks | $1,500 |
+| **M3** | Mobile app (React Native) + UI + board sync with Discord + Card purchase system | 3-4 weeks | $1,500 |
+| **M4** | Admin panel + withdrawals + tournaments + final polish + Bond Out/Beneficiary Cards | 2-3 weeks | $1,500 |
 | **TOTAL** | | **10-12 weeks** | **$5,500** |
 
 ### Minimum Launch Version (Discord Only)
 - **Price:** $3,500
 - **Timeline:** 4-5 weeks
-- **Includes:** M1 only (no mobile app, no real payments)
+- **Includes:** M1 only (no mobile app, no real payments, no ATM system)
+- **Good for:** Testing gameplay, building community, practice mode
 
 ---
 
@@ -673,7 +1200,7 @@ gangsta-island/
 │   │   ├── models/
 │   │   │   ├── User.model.js
 │   │   │   ├── Game.model.js
-│   │   │   ├── LifeCard.model.js
+│   │   │   ├── Card.model.js
 │   │   │   └── Transaction.model.js
 │   │   ├── routes/
 │   │   │   ├── auth.routes.js
@@ -686,14 +1213,22 @@ gangsta-island/
 │   │   │   └── rateLimit.middleware.js
 │   │   ├── services/
 │   │   │   ├── gameEngine.service.js
+│   │   │   ├── dice.service.js
+│   │   │   ├── hustle.service.js
+│   │   │   ├── take.service.js
+│   │   │   ├── struggle.service.js
+│   │   │   ├── stacking.service.js
+│   │   │   ├── atm.service.js
 │   │   │   ├── payment.service.js
 │   │   │   └── discord.service.js
 │   │   ├── utils/
 │   │   │   ├── logger.js
+│   │   │   ├── constants.js  (Characters, squares, cards)
 │   │   │   └── helpers.js
 │   │   ├── config/
 │   │   │   ├── database.js
-│   │   │   └── redis.js
+│   │   │   ├── redis.js
+│   │   │   └── stripe.js
 │   │   └── app.js
 │   ├── .env
 │   ├── package.json
@@ -703,16 +1238,23 @@ gangsta-island/
 │   ├── src/
 │   │   ├── commands/
 │   │   │   ├── roll.js
+│   │   │   ├── hustle.js
+│   │   │   ├── struggle.js
 │   │   │   ├── board.js
 │   │   │   ├── join.js
 │   │   │   ├── create.js
 │   │   │   ├── profile.js
+│   │   │   ├── cards.js
+│   │   │   ├── use-card.js
+│   │   │   ├── bank-run.js
+│   │   │   ├── my-money.js
 │   │   │   └── admin.js
 │   │   ├── events/
 │   │   │   ├── ready.js
 │   │   │   └── interactionCreate.js
 │   │   ├── utils/
 │   │   │   ├── boardRenderer.js  (Canvas image generation)
+│   │   │   ├── embeds.js
 │   │   │   └── api.js
 │   │   └── index.js
 │   ├── .env
@@ -750,13 +1292,53 @@ gangsta-island/
 │   │   │   ├── Games.js
 │   │   │   ├── Transactions.js
 │   │   │   └── Settings.js
-│   │   ├── components/
 │   │   └── App.js
 │   └── package.json
+│
+├── constants/
+│   ├── characters.js      (All 14 characters with teams and starting positions)
+│   ├── squares.js         (Board squares 1-101 with types)
+│   ├── cards.js           (All card definitions)
+│   └── rules.js           (Game constants: win amounts, turn orders, etc.)
 │
 ├── docker-compose.yml
 ├── README.md
 └── .gitignore
+```
+
+### Constants File Example (`constants/characters.js`)
+
+```javascript
+// All 14 characters with their teams and starting positions
+const CHARACTERS = {
+  goodGuys: [
+    { name: "KING CERVUS", start: "Drug Free Zone", startPosition: 1 },
+    { name: "REVEREND", start: "Church", startPosition: 2 },
+    { name: "OFFICER FRIENDLY", start: "Breakfast Shop", startPosition: 3 },
+    { name: "COUNSELOR MOM", start: "Bus Stop", startPosition: 4 }
+  ],
+  badHustlas: [
+    { name: "COKALINA", start: "Crack House", startPosition: 5 },
+    { name: "MR. H", start: "Dog Pound", startPosition: 6 },
+    { name: "METH MAN", start: "Meth House", startPosition: 7 },
+    { name: "RASTA", start: "Smoke House", startPosition: 8 },
+    { name: "PROFESSOR X", start: "Scripts", startPosition: 9 }
+  ],
+  uglyTakers: [
+    { name: "5-FINGERS", start: "Shelter", startPosition: 10, vulnerable: true },
+    { name: "BULLY D. WILLIAMS", start: "Arcade", startPosition: 11, vulnerable: true },
+    { name: "MRS. SEXY", start: "Lap Dance Club", startPosition: 12, vulnerable: true },
+    { name: "CROOKED COP", start: "Fed Sub-Holding", startPosition: 13, invincible: true },
+    { name: "LAMA", start: "Unda-Boss Corner", startPosition: 14, invincible: true }
+  ]
+};
+
+const TEAM_ORDER = ['bad_hustlas', 'good_guys', 'ugly_takers'];
+const WIN_AMOUNTS = {
+  goodGuys: 2000000,  // Team total $2M
+  badHustlas: 1000000,
+  uglyTakers: 1000000
+};
 ```
 
 ---
@@ -790,14 +1372,6 @@ cd discord-bot
 railway up
 
 # 4. Add environment variables in Railway dashboard
-```
-
-### Deploy MongoDB Atlas
-
-```bash
-# 1. Create cluster on MongoDB Atlas
-# 2. Get connection string
-# 3. Add to .env: MONGODB_URI=your_atlas_uri
 ```
 
 ### Docker Deployment
@@ -848,7 +1422,7 @@ docker-compose up -d
 
 ## 🧪 Testing
 
-### Run Backend Tests
+### Run Tests
 
 ```bash
 cd backend
@@ -860,25 +1434,38 @@ npm run test:coverage     # Coverage report
 ### Example Test
 
 ```javascript
-// gameEngine.test.js
-const GameEngine = require('./gameEngine');
+// dice.test.js
+const DiceSystem = require('./dice.service');
 
-describe('Game Engine', () => {
-  test('rollDice returns number between 1-6', () => {
-    const roll = GameEngine.rollDice();
-    expect(roll).toBeGreaterThanOrEqual(1);
-    expect(roll).toBeLessThanOrEqual(6);
+describe('Dice System', () => {
+  test('rollDice returns 6 numbers between 1-6', () => {
+    const rolls = DiceSystem.rollDice(6);
+    expect(rolls).toHaveLength(6);
+    rolls.forEach(r => {
+      expect(r).toBeGreaterThanOrEqual(1);
+      expect(r).toBeLessThanOrEqual(6);
+    });
   });
   
-  test('teleport works correctly', () => {
-    const result = GameEngine.movePlayer(51, 1); // 51+1=52 (teleport to 67)
-    expect(result.position).toBe(67);
+  test('ATMBF detection works', () => {
+    const rolls = [1,2,3,4,5,6];
+    const result = DiceSystem.checkSpecialRolls(rolls);
+    expect(result.type).toBe('ATMBF');
+    expect(result.reward).toBe(1000);
   });
   
-  test('jail applies penalty', () => {
-    const result = GameEngine.movePlayer(74, 1); // 74+1=75 (jail)
-    expect(result.jail).toBe(true);
-    expect(result.turns).toBe(2);
+  test('SNITCH detection works', () => {
+    const rolls = [1,1,1,2,6,6];
+    const result = DiceSystem.checkSpecialRolls(rolls);
+    expect(result.type).toBe('SNITCH');
+    expect(result.penalty).toBe('JAIL');
+  });
+  
+  test('Hustle scoring works', () => {
+    const rolls = [6,6,6,3,2,1];
+    const result = DiceSystem.checkHustleScore(rolls);
+    expect(result.score).toBe(6000);
+    expect(result.threeOfAKind).toBe(true);
   });
 });
 ```
@@ -887,75 +1474,19 @@ describe('Game Engine', () => {
 
 ## 🔧 Troubleshooting
 
-### Common Issues & Solutions
-
 | Issue | Solution |
 |-------|----------|
 | Discord bot not responding | Check bot token in `.env`. Regenerate token in Discord Developer Portal |
 | MongoDB connection failed | Verify `MONGODB_URI`. Check IP whitelist in MongoDB Atlas |
 | Port 5000 already in use | Kill process: `npx kill-port 5000` OR change PORT in `.env` |
-| Bot can't join voice channel | Bot needs "Connect" and "Speak" permissions |
+| Bot can't register slash commands | Run `node deploy-commands.js` |
 | WebSocket connection drops | Check firewall. Increase timeout in `socket.io` config |
-| Stripe webhook failing | Use Stripe CLI for local testing: `stripe listen --forward-to localhost:5000/webhook` |
-
-### Logs
-
-```bash
-# Backend logs
-cd backend
-npm run logs
-
-# Discord bot logs
-cd discord-bot
-npm run logs
-
-# MongoDB logs
-mongod --logpath /var/log/mongodb.log
-```
+| HUSTLE not working | Verify player is BAD HUSTLA and on entry spot |
+| STRUGGLE not triggering | Check if TAKER is vulnerable (not Crooked Cop or LAMA) |
 
 ---
 
-## 👥 Contributing
-
-### For Developers
-
-1. Fork the repository
-2. Create feature branch: `git checkout -b feature/amazing-feature`
-3. Commit changes: `git commit -m 'Add amazing feature'`
-4. Push: `git push origin feature/amazing-feature`
-5. Open Pull Request
-
-### Code Style
-
-- Use ESLint: `npm run lint`
-- Format with Prettier: `npm run format`
-- Follow Conventional Commits
-
----
-
-## 📝 License
-
-This project is proprietary and confidential.
-
-**© 2024 Gangsta Island / Chase 101. All rights reserved.**
-
-Unauthorized copying, distribution, or modification of this software is strictly prohibited.
-
----
-
-## 📞 Support & Contact
-
-| Role | Contact |
-|------|---------|
-| Developer | Zahid (Level 2 Fiverr Seller) |
-| Client | [Client Name] |
-| Project Status | Active |
-
-**Emergency Contact:** Discord DM or Fiverr inbox
-
----
-
-## ✅ Quick Start Checklist for New Developer
+## ✅ Quick Start for Developers
 
 ```bash
 # 1. Clone repo
@@ -969,7 +1500,7 @@ cd ../discord-bot && npm install
 cp backend/.env.example backend/.env
 cp discord-bot/.env.example discord-bot/.env
 
-# 4. Start MongoDB (local or Docker)
+# 4. Start MongoDB and Redis
 docker-compose up -d mongodb redis
 
 # 5. Run migrations
@@ -981,20 +1512,30 @@ npm run dev
 # 7. Start bot (new terminal)
 cd discord-bot && npm start
 
-# 8. Test with `/roll` in Discord
+# 8. Test in Discord
+/register
+/create
+/join [code]
+/roll
 ```
 
 ---
 
-## 📚 Additional Documentation
+## 📞 Support & Contact
 
-| Document | Location |
-|----------|----------|
-| Board Layout Map | `/docs/board-layout.json` |
-| Life Cards List | `/docs/life-cards.json` |
-| Character Profiles | `/docs/characters.json` |
-| API Postman Collection | `/docs/GangstaIsland.postman_collection.json` |
-| Database ER Diagram | `/docs/database-diagram.png` |
+| Role | Contact |
+|------|---------|
+| Lead Developer | Zahid (Level 2 Fiverr Seller) |
+| Project Owner | [Client Name] |
+| Official Game Site | https://gameofchase.com |
+
+---
+
+## 📝 License
+
+This project is proprietary and confidential.
+
+**© 2024 Game of Chase / Bittersweet Publishing. All rights reserved.**
 
 ---
 
